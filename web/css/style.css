@@ -1,0 +1,58 @@
+/*resetando as margens*/
+*{
+    margin: 0;
+    padding: 0;
+}   
+    
+/*definindo tamanho dos container gerais*/
+#container-azul{
+    height: 100vh;
+    background: #2B4B87;
+    overflow: hidden;
+}
+
+#container-branco{
+    height: 75%;
+    margin: 82px 0px;
+    border-radius: 15px;
+    background: #fff;
+}
+
+#container-form{
+    height: 70%;
+    width: 60%;
+    margin: 0 auto;
+    border-radius: 15px;
+    background: #5694F2;
+}
+
+/*formulário*/
+#frm-login{
+    height: 100%;
+    width: 90%;
+    margin: 0 auto;
+}
+
+label{
+    margin-left: 20%;
+    color: #fff;
+}
+
+a{
+    color: #fff;
+}
+
+input.input-texto{
+    display: block;
+    border: none;
+    border-radius: 15px;
+}
+
+button#btn-login{
+    display: block;
+    padding: 10px 40px;
+    border: none;
+    border-radius: 15px;
+    color: #fff;
+    background: #2B4B87;
+}
