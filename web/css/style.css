@@ -12,44 +12,54 @@
 }
 
 #container-branco{
-    height: 75%;
-    margin: 82px 0px;
+    height: 70%;
+    width: 40%;
+    margin: 8% auto;
     border-radius: 15px;
     background: #fff;
 }
 
-#container-form{
-    height: 70%;
-    width: 60%;
-    margin: 0 auto;
-    border-radius: 15px;
-    background: #5694F2;
-}
-
 /*formulário*/
 #frm-login{
-    height: 100%;
+    height: 80%;
     width: 90%;
+    margin: 0 auto;
+    align-items: center;
+}
+
+.container-input{
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.container-botao{
+    width: 80%;
     margin: 0 auto;
 }
 
 label{
-    margin-left: 20%;
-    color: #fff;
+    color: black;
 }
 
 a{
-    color: #fff;
+    color: black;
+    text-align: center;
+    padding-top: 15px;
 }
 
 input.input-texto{
     display: block;
+    width: 80%;
+    padding: 10px 40px;
     border: none;
     border-radius: 15px;
 }
 
 button#btn-login{
     display: block;
+    width: 40%;
+    margin: 0 auto;
     padding: 10px 40px;
     border: none;
     border-radius: 15px;
