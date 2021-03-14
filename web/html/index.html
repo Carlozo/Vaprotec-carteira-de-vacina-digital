@@ -4,31 +4,34 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="../css/style.css">
     <title>Login</title>
 </head>
 <body>
-    <div id="container-azul">
-        <div id="container-branco">
-                <form id="frm-login">
-                    <div class="container-input">
-                        <label>Email:</label>
-                    <input class="input-texto" type="text" placeholder="inserir email">
-                    </div>
-                    <div class="container-input">
-                        <label>Senha:</label>
-                    <input class="input-texto" type="password" placeholder="inserir senha">
-                    </div>
-                    <div class="container-botao">
-                        <button id="btn-login">Login</button>
-                        <a href="./redefinirsenha.html">Esqueci minha senha</a>
-                    </div>
-                </form>
+    <div class="container-azul">
+        <div class="container-branco">
+            <div class="bloco-central">
+                <div class="img-form">
+                    <img src="../imagens/logo-form.png">
+                </div>
+                
+                <form class="form">
+                    <p class="descricao">Email:</p>
+                    <label class="label-input" for="">
+                        <input type="email" placeholder="Inserir Email">
+                    </label>
+                
+                    <p class="descricao">Senha:</p>
+                    <label class="label-input" for="">
+                        <input type="password" placeholder="Inserir Senha">
+                    </label>
 
-        </div>
-        <div class="logo">
-            <p>logo</p>
-        </div>
-    </div>
+                    <a class="link" href="#">forgot your password?</a>
+                    <button class="btn">Login</button>
+                </form>
+            </div><!-- bloco central -->
+            <a class="link" href="./cadastrarconta.html" style="position: absolute; top: 75%;">criar uma conta!</a>
+        </div><!-- container branco -->
+    </div><!-- container azul -->
 </body>
 </html>

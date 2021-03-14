@@ -1,68 +1,131 @@
-/*resetando as margens*/
-*{
+/*importando a fonte*/@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,700&display=swap');
+
+/*resetando o css e definindo a fonte*/
+* {
     margin: 0;
     padding: 0;
-}   
-    
-/*definindo tamanho dos container gerais*/
-#container-azul{
-    height: 100vh;
-    background: #2B4B87;
-    overflow: hidden;
+    box-sizing: border-box;
 }
 
-#container-branco{
-    height: 70%;
-    width: 40%;
-    margin: 8% auto;
-    border-radius: 15px;
-    background: #fff;
+body {
+    font-family: 'Open Sans', sans-serif;
 }
 
-/*formulário*/
-#frm-login{
-    height: 80%;
-    width: 90%;
-    margin: 0 auto;
+/*---CONTAINERS---*/
+.container-azul {
+    display: flex;
+    justify-content: center;
     align-items: center;
+    height: 100vh;
+    background-color: #2B4B87;
+    min-width: 630px;
 }
 
-.container-input{
-    width: 80%;
-    margin: 0 auto;
-    padding: 20px;
+.container-branco{
+    display: flex;
+    height: 85%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
 }
 
-.container-botao{
-    width: 80%;
-    margin: 0 auto;
+.bloco-central {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 0px;
+    background: #bfd5f55d;
 }
 
-label{
-    color: black;
+/*---TITULOS---*/
+.titulo {
+    font-size: 28px;
+    font-weight: bold;
+    color: #2B4B87;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #2B4B87;
 }
 
-a{
-    color: black;
-    text-align: center;
-    padding-top: 15px;
+.descricao {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 30px;
+    color: #7f8c8d;
+    text-align: left;
 }
 
-input.input-texto{
-    display: block;
-    width: 80%;
-    padding: 10px 40px;
+/*---FORMULÁRIO---*/
+.form {
+    display: flex;
+    flex-direction: column;
+    width: 55%;
+}
+
+/*imagem do formulário*/
+.img-form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 15%;
+}
+
+.img-form img{
+    width: 35%;
+}
+
+/*inputs*/
+.form input {
+    height: 45px;
+    width: 100%;
     border: none;
-    border-radius: 15px;
+    background-color: #fff;
 }
 
-button#btn-login{
-    display: block;
-    width: 40%;
-    margin: 0 auto;
-    padding: 10px 40px;
-    border: none;
+.label-input {
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    margin: 8px;
+
+}
+
+input::-webkit-input-placeholder /*essa classe define o espaço placehoder da borda do input*/
+{    
+    padding-left: 20px;
+}
+
+/*botao*/
+.btn {
     border-radius: 15px;
+    text-transform: uppercase;
     color: #fff;
-    background: #2B4B87;
+    font-size: 10px;
+    padding: 10px 50px;
+    cursor: pointer;
+    font-weight: bold;
+    width: 150px;
+    align-self: center;
+    border: none;
+    margin-top: 1rem;
+    background-color: #2B4B87;
+    border: 1px solid #2B4B87;
+    transition: background-color .5s;
+}
+
+.btn:hover {
+    background-color: #fff;
+    border: 1px solid #2B4B87;
+    color: #2B4B87;
+}
+
+/*link*/
+
+.link {
+    color: #34495e;
+    font-size: 14px;
+    margin: 15px 0;
+    text-align: center;
 }
