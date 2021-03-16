@@ -129,3 +129,15 @@ input::-webkit-input-placeholder /*essa classe define o espaço placehoder da bo
     margin: 15px 0;
     text-align: center;
 }
+
+/*REDEFINIR SENHA*/
+.texto-email{
+    margin: 15px 0px;
+    padding: 10px;
+    background: #bbd3f7;
+    border-radius: 30px;
+}
+
+.texto-email p{
+    padding-left: 10px;
+}
