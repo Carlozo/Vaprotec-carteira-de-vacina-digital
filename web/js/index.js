@@ -1,3 +1,3 @@
 function mudar() {
-    window.location.href = "https://vacinei-carteirinha.herokuapp.com/telaInicial.html";
+    window.location.href = "https://vacinei-carteirinha.herokuapp.com/html/telaInicial.html";
 }
