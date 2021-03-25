@@ -1,14 +1,17 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-br" class="h-100">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link rel="stylesheet" href="telaInicial.css">
     <link rel="stylesheet" href="./css/style.css">
     <title>Login</title>
 </head>
-<body>
-    <div class="container-azul">
+<body class="d-flex flex-column h-100">
+    <div class="d-flex justify-content-center ">
         <div class="container-branco">
             <div class="bloco-central">
                 <div class="img-form">
@@ -26,12 +29,16 @@
                         <input type="password" placeholder="Inserir Senha">
                     </label>
 
-                    <a class="link" href="./html/redefinirsenha.html">esqueceu sua senha?</a>
+                    <a class="link" href="./html/redefinir-senha.html">esqueceu sua senha?</a>
                     <button class="btn" onclick="mudar()">Login</button>
                 </form>
             </div><!-- bloco central -->
-            <a class="link" href="./html/cadastrarconta.html" style="position: absolute; top: 75%;">criar uma conta!</a>
+            <a class="link" href="./html/cadastrar-conta.html" style="position: absolute; top: 75%;">criar uma conta!</a>
         </div><!-- container branco -->
     </div><!-- container azul -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+    crossorigin="anonymous"></script>
 </body>
 </html>

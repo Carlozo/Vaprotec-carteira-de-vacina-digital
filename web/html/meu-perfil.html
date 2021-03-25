@@ -9,7 +9,7 @@
     integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
   <link rel="stylesheet" href="telaInicial.css">
 
-  <title>Meu Perfil</title>
+  <title>Tela Inicial</title>
 </head>
 <body class="d-flex flex-column h-100">
   <header>
@@ -23,10 +23,10 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link" href="telaInicial.html">Início</a>
+              <a class="nav-link active" aria-current="page" href="tela-inicial.html">Início</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="meuPerfil.html">Meu Perfil</a>
+              <a class="nav-link" href="meu-perfil.html">Meu Perfil</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="vacina.html">Vacina</a>
@@ -47,31 +47,40 @@
     </nav>
   </header>
 
-  <div class="container mt-5 mb-5 w-50">
+  <div class="container mt-5 mb-5">
+    <div class="row justify-content-md-center">
 
-    <div class="card border border-1 border-primary shadow">
-      <div class="card-header fw-bolder bg-primary text-white">
-        <div class="row justify-content-md-center d-flex align-items-center">
-          <div class="col-md-2">
-            <img src="../imagens\usuario1.png" width="55px">
-          </div>
-
-          <div class="col-10">
-            <h5 class="fw-bolder">Maria Silva de Santos - 10 Anos</h5>
+      <div class="col-md-4">
+        <div class="card mt-3 shadow">
+          <div class="card-body">
+            <h4 class="card-title text-success text-center">Acesso Rápido</h4>
+            <div class="d-flex justify-content-center">
+              <div class="p-2">
+                <a href="vacina.html" class="btn btn-outline-success me-2">
+                  <img src="../imagens/vacina1.png" width="60">
+                </a>
+              </div>
+              <div class="p-2">
+                <a href="#" class="btn btn-outline-success">
+                  <img src="../imagens/calendario1.png" width="60">
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-      <div class="card-body text-center">
-        <img src="../imagens/vacina1.png" width="60px">
-        <p class="h4 fw-bolder text-success">Vacinas estão em dia</p>
 
-        <a class="btn btn-info mt-3">
-          <img src="../imagens/calendario1.png" width="60px">
-          <h5 class="text-white">Minha cardeneta</h5>
-        </a>
+      <div class="col-md-4">
+        <div class="card mt-3 shadow">
+          <div class="card-body">
+            <h4 class="card-title text-success text-center">Informações</h4>
+            <p class="card-text">CoronaVac é uma vacina contra a COVID-19 desenvolvida pela companhia biofarmacêutica
+              chinesa Sinovac Biotech em parceria com o Instituto Butantan.</p>
+          </div>
+        </div>
       </div>
-    </div>
 
+    </div>
   </div>
 
   <footer class="footer mt-auto py-3 bg-primary">
