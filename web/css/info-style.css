@@ -1,0 +1,163 @@
+@charset "utf-8";
+@import url("https://use.typekit.net/jod2psl.css");
+
+/* Alteração do Box Model para border-box */
+*, *::before, *::after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+/*Etapa01*/
+/*Regras para o site inteiro, em qualquer situação/tamanho*/
+
+/*Etapa02*/
+/*Regras para determinados tamanhos de tela*/
+
+html{
+    font-size: 18px;
+}
+/*Reset de alguns elementos*/
+body, h1, h2, h3, p{
+    margin: 0;
+    padding:0;
+    color: white;
+}
+h3{
+    padding-left: 40px;
+    padding-bottom: 15px;
+    padding-right: 15px;
+    padding-top: 15px;
+    font-size: 1rem;
+}
+
+
+.a2{
+    background-color: rgba(91, 178, 248, 0.671);
+    width: 70%;
+    margin-left: 15%;
+    border-radius: 10px ;
+    margin-top: 5%;
+    border-width: 2px 2px 2px 2px;
+    border-style:solid;
+    border-color:rgba(7, 7, 94, 0.432);
+    margin-bottom:5%;
+}
+
+.a3, .a4 {
+    background-color: rgba(91, 178, 248, 0.671);
+    width: 70%;
+    margin-left: 15%;
+    border-radius: 10px;
+    border-width: 2px 2px 2px 2px;
+    border-style:solid;
+    border-color:rgba(7, 7, 94, 0.432);
+    margin-bottom:5%;
+}
+.a4 a{
+    
+    margin-left: 50px;
+}
+.a3 img{
+    padding-bottom: 2px;
+}
+a{
+    text-decoration: none;
+    color: rgba(17, 17, 104, 0.849);
+    
+    
+}
+article h2{
+    margin-top: 40px;
+}
+
+p{
+    color: white;
+    padding-left: 40px;
+    padding-bottom: 30px;
+    padding-right: 15px;
+    padding-top: 15px;
+    text-align: left;
+    
+
+}
+.azul{
+    background-color:#0d6efd;
+    padding-top: 2px;
+    border-radius: 8px  8px 0 0;
+}
+.azul img{
+    width: 40px;
+    height: 40px;
+    margin-left: 35px;
+}
+
+.uni{
+    width: 90%;
+    height: 135px;
+    
+    
+}
+.uni li{
+    display: inline-block;
+    
+
+}
+.a3 li{
+    margin-left: 30px;
+}
+.a2  li{
+    margin-left: 30px;
+    
+}
+.a2 a{
+    color: cornsilk;
+
+}
+.a2 a:hover{
+    color: darkblue;
+}
+h3 {
+    animation-duration: 3s;
+    animation-name: go-back;
+    animation-iteration-count: 2s;
+    animation-direction: alternate;
+  }
+  @keyframes go-back {
+    0% {
+        transform: translateX(100px);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+/*Tornar imagem responsiva*/
+
+@media screen and (min-width: 550px){
+    img{
+        width:100% ;
+    }
+    .a1{
+        width: 50%;
+        height: 130px;
+    }
+
+    
+}
+@media screen and (min-width: 670px){
+
+    .a1{
+        width: 40%;
+        height: 130px;
+    }
+
+    
+}
+@media screen and (min-width: 770px){
+
+    .a1{
+        width: 35%;
+        height: 130px;
+    }
+
+    
+}
