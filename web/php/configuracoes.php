@@ -68,7 +68,7 @@
                                 <i class="fas fa-id-badge me-3" style="font-size: 30px;"></i>
                                 <span>Alterar dados</span>
                             </div>
-                            <a class="btn-primary btn" href="editar-perfil.html">Alterar</a>
+                            <a class="btn-primary btn" href="editar-perfil.php">Alterar</a>
                         </div>
                         <hr>
                         <div class="d-flex justify-content-between align-items-center">
@@ -76,7 +76,7 @@
                                 <i class= "fas fa-unlock me-3"style="font-size: 30px;"></i>
                                 <span>Senha</span>
                             </div>
-                            <a class="btn-primary btn" href="redefinir-senha.html">Alterar</a>
+                            <a class="btn-primary btn" href="redefinir-senha.php">Alterar</a>
                         </div>
                         <hr>
                         <div class="d-flex justify-content-between align-items-center">
@@ -84,7 +84,7 @@
                                 <i class="fas fa-trash me-3" style="font-size: 30px;"></i>
                                 <span>Minha Conta</span>
                             </div>
-                            <a class="btn-danger btn" href="excluir-conta.html">Excluir</a>
+                            <a class="btn-danger btn" href="excluir-conta.php">Excluir</a>
                         </div>
                         <hr>
                         <div class="d-flex justify-content-center align-items-center">
