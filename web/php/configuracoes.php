@@ -8,7 +8,8 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
-    <title>Vacina</title>
+        <script src="https://use.fontawesome.com/releases/v5.15.2/js/all.js" data-auto-replace-svg="nest"></script>
+    <title>Configurações</title>
 </head>
 
 <body class="d-flex flex-column h-100">
@@ -24,19 +25,19 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link" href="tela-inicial.html">Inicio</a>
+                            <a class="nav-link" href="tela-inicial.php">Inicio</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="meu-perfil.html">Meu Perfil</a>
+                            <a class="nav-link" href="meu-perfil.php">Meu Perfil</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="vacina.html">Vacina</a>
+                            <a class="nav-link" href="vacina.php">Vacina</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="calendario.html">Calendário</a>
+                            <a class="nav-link" href="calendario.php">Calendário</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="configuracoes.html">Configurações</a>
+                            <a class="nav-link active" aria-current="page" href="configuracoes.php">Configurações</a>
                         </li>
                     </ul>
                     <form class="d-flex">
@@ -52,32 +53,44 @@
         <div class="row mt-5">
             <div class="col-lg-6 col-md-6 mx-auto">
 
-                <div class="card mt-5 border border-1 border-primary shadow">
+                <div class="card mt-4 border border-1 border-primary shadow">
                     <div class="card-header text-center bg-primary text-white">
-                        <h4>Vacina</h4>
+                        <img src="imagens/vacina1.png" alt="" width="50">
+                        <h4>Notificações</h4>
                     </div>
                     <div class="card-body">
-                        <div class="list-group">
-                            <a href="adicionar-vacina.html"
-                                class="list-group-item list-group-item-action d-flex align-items-center">
-                                <div class="badge bg-info text-dark me-2">
-                                    <img src="../imagens/vacina1.png" width="40">
-                                </div>
-                                <h4 class="fw-bolder text-center">Adicionar Vacina</h4>
-                            </a>
-                            <a href="calendario.html" class="list-group-item list-group-item-action d-flex align-items-center">
-                                <div class="badge bg-info text-dark me-2">
-                                    <img src="../imagens/calendario1.png" width="40">
-                                </div>
-                                <h4 class="fw-bolder text-center">Calendário</h4>
-                            </a>
-                            <a href="informacoes.html" class="list-group-item list-group-item-action d-flex align-items-center">
-                                <div class="badge bg-info text-dark me-2">
-                                    <img src="../imagens/info.png" width="40">
-                                </div>
-                                <h4 class="fw-bolder text-center">Informações</h4>
-                            </a>
+                        <div>
+                            <p>Configurações da conta</p>
                         </div>
+                        <hr>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="d-flex justify-content-center align-items-center">
+                                <i class="fas fa-id-badge me-3" style="font-size: 30px;"></i>
+                                <span>Alterar dados</span>
+                            </div>
+                            <a class="btn-primary btn" href="editar-perfil.html">Alterar</a>
+                        </div>
+                        <hr>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="d-flex justify-content-center align-items-center">
+                                <i class= "fas fa-unlock me-3"style="font-size: 30px;"></i>
+                                <span>Senha</span>
+                            </div>
+                            <a class="btn-primary btn" href="redefinir-senha.html">Alterar</a>
+                        </div>
+                        <hr>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="d-flex justify-content-center align-items-center">
+                                <i class="fas fa-trash me-3" style="font-size: 30px;"></i>
+                                <span>Minha Conta</span>
+                            </div>
+                            <a class="btn-danger btn" href="excluir-conta.html">Excluir</a>
+                        </div>
+                        <hr>
+                        <div class="d-flex justify-content-center align-items-center">
+
+                            <a class="btn-warning btn h5"><i class="fas fa-sign-out-alt me-3" style="font-size: 20px;"></i>Sair</a>
+                        </div> 
                     </div>
                 </div>
 

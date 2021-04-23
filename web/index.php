@@ -38,8 +38,8 @@
                             </div>
     
                             <div class="mb-3 d-flex justify-content-center">
-                                <a class="me-4 text-decoration-none" href="./html/redefinir-senha.html">esqueceu sua senha?</a>
-                                <a class="text-decoration-none" href="./html/cadastrar-conta.html">criar uma conta!</a>
+                                <a class="me-4 text-decoration-none" href="./html/redefinir-senha.php">esqueceu sua senha?</a>
+                                <a class="text-decoration-none" href="./html/cadastrar-conta.php">criar uma conta!</a>
                             </div>
                             
                             <button class="form-control btn btn-primary" onclick="mudar()">Login</button>

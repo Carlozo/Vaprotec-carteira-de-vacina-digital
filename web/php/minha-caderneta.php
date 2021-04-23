@@ -6,8 +6,8 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
       integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
-    <link rel="stylesheet" href="telaInicial.css">
-    <title>Meu Perfil</title>
+    <script src="https://use.fontawesome.com/releases/v5.15.2/js/all.js" data-auto-replace-svg="nest"></script>
+    <title>Minha Caderneta</title>
 </head>
 <body class="d-flex flex-column h-100">
     <header>
@@ -20,19 +20,19 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link" href="tela-inicial.html">Início</a>
+                            <a class="nav-link" href="tela-inicial.php">Início</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="meuPerfil.html">Meu Perfil</a>
+                            <a class="nav-link" href="meu-perfil.php">Meu Perfil</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="vacina.html">Vacina</a>
+                            <a class="nav-link" href="vacina.php">Vacina</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="calendario.html">Calendário</a>
+                            <a class="nav-link" href="calendario.php">Calendário</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="configuracoes.html">Configurações</a>
+                            <a class="nav-link" href="configuracoes.php">Configurações</a>
                         </li>
                     </ul>
                     <form class="d-flex">
@@ -49,23 +49,38 @@
     <div class="card border border-1 border-primary shadow">
         <div class="card-header fw-bolder bg-primary text-white">
             <div class="row justify-content-md-center d-flex align-items-center">
-                <div class="col-md-2">
-                  <img src="../imagens\usuario1.png" width="55px">
-                </div>
+              <div class="col-md-2">
+                <img src="../imagens\usuario1.png" width="55px">
+              </div>
 
-                <div class="col-10">
-                  <h5 class="fw-bolder">Maria Silva de Santos - 10 Anos</h5>
-                </div>
+              <div class="col-10">
+                <h5 class="fw-bolder">Maria Silva de Santos - 10 Anos</h5>
+              </div>
             </div>
-        </div>
-        <div class="card-body text-center">
-            <img src="../imagens/vacina1.png" width="60px">
-            <p class="h4 fw-bolder text-success">Vacinas estão em dia</p>
-
-            <a class="btn btn-info mt-3" href="minha-caderneta.html">
-              <img src="../imagens/calendario1.png" width="60px">
-              <h5 class="text-white">Minha cardeneta</h5>
-            </a>
+          </div>
+          <div class="card-body text-center">
+            <table class="table table-hover table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Data</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Corona Virus</td>
+                        <td>21/06/2021</td>
+                    </tr>
+                    <tr>
+                        <td>Corona Virus</td>
+                        <td>21/06/2021</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="d-flex justify-content-center align-items-center">
+                <a class="btn btn-primary fw-bolda" type="button" href="adicionar-vacina.html">
+                <i class="fas fa-syringe" style="font-size: 1.5rem;"></i> Adicionar Vacina</a>
+            </div>
         </div>
     </div>
 
@@ -77,6 +92,8 @@
     </div>
   </footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+    crossorigin="anonymous"></script>
 </body>
 </html>

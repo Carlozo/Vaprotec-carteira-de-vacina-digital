@@ -20,19 +20,19 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link" href="tela-inicial.html">Início</a>
+                            <a class="nav-link" href="tela-inicial.php">Início</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="meu-perfil.html">Meu Perfil</a>
+                            <a class="nav-link" href="meu-perfil.php">Meu Perfil</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="vacina.html">Vacina</a>
+                            <a class="nav-link" href="vacina.php">Vacina</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="calendario.html">Calendário</a>
+                            <a class="nav-link active" aria-current="page" href="calendario.php">Calendário</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="configuracoes.html">Configurações</a>
+                            <a class="nav-link" href="configuracoes.php">Configurações</a>
                         </li>
                     </ul>
                     <form class="d-flex">
