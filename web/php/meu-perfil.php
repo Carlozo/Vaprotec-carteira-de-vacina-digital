@@ -62,7 +62,7 @@
             <img src="../imagens/vacina1.png" width="60px">
             <p class="h4 fw-bolder text-success">Vacinas estão em dia</p>
 
-            <a class="btn btn-info mt-3" href="minha-caderneta.html">
+            <a class="btn btn-info mt-3" href="minha-caderneta.php">
               <img src="../imagens/calendario1.png" width="60px">
               <h5 class="text-white">Minha cardeneta</h5>
             </a>

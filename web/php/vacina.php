@@ -58,20 +58,20 @@
                     </div>
                     <div class="card-body">
                         <div class="list-group">
-                            <a href="adicionar-vacina.html"
+                            <a href="adicionar-vacina.php"
                                 class="list-group-item list-group-item-action d-flex align-items-center">
                                 <div class="badge bg-info text-dark me-2">
                                     <img src="../imagens/vacina1.png" width="40">
                                 </div>
                                 <h4 class="fw-bolder text-center">Adicionar Vacina</h4>
                             </a>
-                            <a href="calendario.html" class="list-group-item list-group-item-action d-flex align-items-center">
+                            <a href="calendario.php" class="list-group-item list-group-item-action d-flex align-items-center">
                                 <div class="badge bg-info text-dark me-2">
                                     <img src="../imagens/calendario1.png" width="40">
                                 </div>
                                 <h4 class="fw-bolder text-center">Calendário</h4>
                             </a>
-                            <a href="informacoes.html" class="list-group-item list-group-item-action d-flex align-items-center">
+                            <a href="informacoes.php" class="list-group-item list-group-item-action d-flex align-items-center">
                                 <div class="badge bg-info text-dark me-2">
                                     <img src="../imagens/info.png" width="40">
                                 </div>
