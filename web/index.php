@@ -1,3 +1,8 @@
+<?php
+session_start();
+include_once("php/comandos/conn.php");
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br" class="h-100">
 <head>
@@ -38,8 +43,8 @@
                             </div>
     
                             <div class="mb-3 d-flex justify-content-center">
-                                <a class="me-4 text-decoration-none" href="./html/redefinir-senha.php">esqueceu sua senha?</a>
-                                <a class="text-decoration-none" href="./html/cadastrar-conta.php">criar uma conta!</a>
+                                <a class="me-4 text-decoration-none" href="php/telas/redefinir-senha.php">esqueceu sua senha?</a>
+                                <a class="text-decoration-none" href="php/telas/cadastrar-conta.php">criar uma conta!</a>
                             </div>
                             
                             <button class="form-control btn btn-primary" onclick="mudar()">Login</button>

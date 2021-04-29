@@ -1,3 +1,7 @@
+<?php
+include_once("../comandos/conn.php");
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br" class="h-100">
 <head>
@@ -55,12 +59,12 @@
             <div class="d-flex justify-content-center">
               <div class="p-2">
                 <a href="vacina.php" class="btn btn-outline-success me-2">
-                  <img src="../imagens/vacina1.png" width="60">
+                  <img src="/imagens/vacina1.png" width="60">
                 </a>
               </div>
               <div class="p-2">
                 <a href="calendario.php" class="btn btn-outline-success">
-                  <img src="../imagens/calendario1.png" width="60">
+                  <img src="/imagens/calendario1.png" width="60">
                 </a>
               </div>
             </div>
