@@ -1,14 +1,21 @@
 <?php
-    $db_dsn = 'pgsql:host=ec2-3-91-127-228.compute-1.amazonaws.com;dbname=d8tv52b41bpo4d';
-    $db_user = 'ygqmnjoptrzzre';
-    $db_pass = 'fd1639d1a470bf5fab8240c94a69a3c2be6c75021f7cc198fad6904030bdd75a';
+
+    $host = "ec2-3-91-127-228.compute-1.amazonaws.com";
+    $user = "ygqmnjoptrzzre";
+    $password = "fd1639d1a470bf5fab8240c94a69a3c2be6c75021f7cc198fad6904030bdd75a";
+    $dbname = "d8tv52b41bpo4d";
+    $port = "5432";
 
     try {
-        $conn = new PDO($db_dsn, $db_user, $db_pass);
-        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        echo 'FOIIII';
-    } catch(PDOException $e) {
-        echo 'ERROR: ' . $e->getMessage();
+        $dsn = 'pgsql:host=' . $host . ';port=' . $port . ';dbname=' . $dbname . ';user=' . $user . ';password=' . $password;
+        
+        $pdo = new PDO($dsn,$user,$password);
+        $pdo -> setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE,PDO::FETCH_OBJ);
+        $pdo -> setAttribute(PDO::ATTR_EMULATE_PREPARES,false);
+        $pdo -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        
+    } catch (PDOException $e) {
+        echo 'Falha ao conectar!' . $e->getMessage();
     }
 ?>
 

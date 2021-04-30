@@ -1,6 +1,5 @@
 <?php
-session_start();
-include_once("php/comandos/conn.php");
+    include_once("php/comandos/conn.php");
 ?>
 
 <!DOCTYPE html>

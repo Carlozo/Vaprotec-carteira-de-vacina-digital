@@ -1,7 +1,3 @@
-<?php
-include_once("../comandos/conn.php");
-?>
-
 <!DOCTYPE html>
 <html lang="pt-br" class="h-100">
 <head>
