@@ -1,7 +1,7 @@
 <?php
     $Nome = addslashes($_POST["nome"]);
     $Nascimento = addslashes($_POST["nasc"]);
-    $Sexo = addslashes($_POST["sexo"]);
+    $Sexo = addslashes($_POST["genero"]);
     $Email = addslashes($_POST["email"]);
     $Senha = addslashes($_POST["senha"]);
 
@@ -9,7 +9,7 @@
 
     function verificarDados($dados){
         $n = 0;
-        for($i = 0; $i >= $dados->length(); $i++){
+        for($i = 0; $i >= strlen($dados); $i++){
         
             if($dados[$i] != Null){
                 $n++;
@@ -32,12 +32,12 @@
             if (isset($_SESSION['idu'])) {
                 header("Location: php/telas/tela-inicial.php");
             }else{
-                header("Location: http://localhost/TCC/web/");
+                header("Location: http://localhost/TCC/web/php/telas/cadastrar-conta.php");
             }
         }else{
-            header("Location: http://localhost/TCC/web/");
+            header("Location: http://localhost/TCC/web/php/telas/cadastrar-conta.php");
         }
     }else{
-        header("Location: http://localhost/TCC/web/");
+        header("Location: http://localhost/TCC/web/php/telas/cadastrar-conta.php");
     }
 ?>

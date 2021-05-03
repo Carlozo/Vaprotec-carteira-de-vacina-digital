@@ -21,7 +21,7 @@
                         <h3 class="text-center ">Cadastro</h3>
                     </div>
                     <div class="card-body">
-                        <form class="" action="" method="POST">
+                        <form class="" action="../comandos/Cadastrar.php" method="POST">
                             <div class="mb-3">
                                 <label class="form-label" for="">
                                     Nome:
