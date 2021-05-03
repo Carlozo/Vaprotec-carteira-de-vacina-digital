@@ -1,18 +1,15 @@
 <?php
 
-    echo $_POST["email"];
-    echo $_POST["senha"];
+    $Email = addslashes($_POST["email"]);
+    $Senha = addslashes($_POST["senha"]);
 
     if (isset($_POST['email']) && !empty($_POST['email']) && isset($_POST['senha']) && !empty($_POST['senha'])) {
-        require_once('conn.php');
-        require_once('Usuario.classe.php');
+        require_once('Conn.php');
+        require_once('usuarioClasse.php');
 
-        $u = new Usuario();
+        $user = new Usuario();
 
-        $email = addslashes($_POST["email"]);
-        $senha = addslashes($_POST["senha"]);
-
-        if ($u->login($email,$senha == true)) {
+        if ($user->Login($Email,$Senha == true)) {
             if (isset($_SESSION['idu'])) {
                 header("Location: php/telas/tela-inicial.php");
             }else{
