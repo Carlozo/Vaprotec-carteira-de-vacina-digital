@@ -1,7 +1,3 @@
-<?php
-    include_once("php/comandos/conn.php");
-?>
-
 <!DOCTYPE html>
 <html lang="pt-br" class="h-100">
 <head>
@@ -26,7 +22,7 @@
                         <h3 class="text-center ">Login</h3>
                     </div>
                     <div class="card-body">
-                        <form class="" action="login.php" method="POST">
+                        <form class="" action="php/comandos/logar.php" method="POST">
                             <div class="mb-3">
                                 <label class="form-label" for="">
                                     Email:
@@ -46,7 +42,7 @@
                                 <a class="text-decoration-none" href="php/telas/cadastrar-conta.php">criar uma conta!</a>
                             </div>
                             
-                            <button class="form-control btn btn-primary" onclick="mudar()">Login</button>
+                            <button class="form-control btn btn-primary" type="submit">Login</button>
                         </form>
                     </div>
                 </div>

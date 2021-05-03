@@ -1,5 +1,5 @@
 <?php
-
+    session_start();
     $host = "ec2-3-91-127-228.compute-1.amazonaws.com";
     $user = "ygqmnjoptrzzre";
     $password = "fd1639d1a470bf5fab8240c94a69a3c2be6c75021f7cc198fad6904030bdd75a";
@@ -16,6 +16,7 @@
         
     } catch (PDOException $e) {
         echo 'Falha ao conectar!' . $e->getMessage();
+        exit;
     }
 ?>
 
