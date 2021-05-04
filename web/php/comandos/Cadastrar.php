@@ -13,7 +13,7 @@
         
             if($dados[$i] != Null){
                 $n++;
-                if($n === 5){
+                if($n >= 5){
                     return true;
                 }
             }else{
@@ -28,7 +28,7 @@
 
         $user = new Usuario();
 
-        if ($user->Cadastro($dados[0], $dados[1], $dados[2], $dados[3], $dados[4])) {
+        if ($user->Cadastro($dados[0], $dados[1], $dados[2], $dados[3], $dados[4])){
             header("Location: php/telas/tela-inicial.php");
         }else{
             header("Location: http://localhost/TCC/web/php/telas/cadastrar-conta.php");
