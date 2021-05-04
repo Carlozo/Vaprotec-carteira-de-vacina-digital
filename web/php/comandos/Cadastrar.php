@@ -9,7 +9,7 @@
 
     function verificarDados($dados){
         $n = 0;
-        for($i = 0; $i >= strlen($dados); $i++){
+        for($i = 0; $i <= strlen($dados); $i++){
         
             if($dados[$i] != Null){
                 $n++;
@@ -29,11 +29,7 @@
         $user = new Usuario();
 
         if ($user->Cadastro($dados[0], $dados[1], $dados[2], $dados[3], $dados[4])) {
-            if (isset($_SESSION['idu'])) {
-                header("Location: php/telas/tela-inicial.php");
-            }else{
-                header("Location: http://localhost/TCC/web/php/telas/cadastrar-conta.php");
-            }
+            header("Location: php/telas/tela-inicial.php");
         }else{
             header("Location: http://localhost/TCC/web/php/telas/cadastrar-conta.php");
         }
