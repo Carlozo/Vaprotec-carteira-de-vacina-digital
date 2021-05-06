@@ -10,7 +10,7 @@
         $user = new Usuario();
 
         if ($user->Login($Email,$Senha == true)) {
-            if (isset($_SESSION['idu'])) {
+            if (isset($_SESSION['id_usuario'])) {
                 header("Location: php/telas/tela-inicial.php");
             }else{
                 header("Location: http://localhost/TCC/web/");

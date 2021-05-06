@@ -38,9 +38,9 @@
 
                             <div class="mb-3">
                                 <label class="me-2">Sexo:</label>
-                                <input type="radio" id="feminino" name="genero" value="feminino">
+                                <input type="radio" id="feminino" name="sexo" value="f">
                                 <label class="me-1" for="feminino">feminino</label>
-                                <input type="radio" id="masculino" name="genero" value="masculino">
+                                <input type="radio" id="masculino" name="sexo" value="m">
                                 <label for="masculino">masculino</label>
                             </div>
 

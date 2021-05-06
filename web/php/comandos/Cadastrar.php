@@ -1,13 +1,14 @@
 <?php
-    $Nome = addslashes($_POST["nome"]);
-    $Nascimento = addslashes($_POST["nasc"]);
-    $Sexo = addslashes($_POST["genero"]);
-    $Email = addslashes($_POST["email"]);
-    $Senha = addslashes($_POST["senha"]);
+    $nome = addslashes($_POST["nome"]);
+    $nascimento = addslashes($_POST["nasc"]);
+    $sexo = addslashes($_POST["sexo"]);
+    $email = addslashes($_POST["email"]);
+    $senha = addslashes($_POST["senha"]);
 
-    $dados = [$Nome,$Nascimento,$Sexo,$Email,$Senha];
+    $dados = [$nome,$nascimento,$sexo,$email,$senha];
 
     function verificarDados($dados){
+        /*echo 'aaaaaaaa';
         $n = 0;
         for($i = 0; $i <= strlen($dados); $i++){
         
@@ -19,7 +20,8 @@
             }else{
                 return false;
             }
-        }
+        }*/
+        return true;
     }
 
     if (verificarDados($dados)) {
