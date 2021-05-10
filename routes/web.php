@@ -1,31 +1,22 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\EventController;
 
-Route::get('/', [EventController::class, 'index']);
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider within a group which
+| contains the "web" middleware group. Now create something great!
+|
+*/
 
-Route::get('/adicionar-vacina', [EventController::class, 'adicionarVacina']);
+Route::get('/', function () {
+    return view('welcome');
+});
 
-Route::get('/cadastrar-conta', [EventController::class, 'cadastrarConta']);
+Auth::routes();
 
-Route::get('/calendario', [EventController::class, 'calendario']);
-
-Route::get('/configuracoes', [EventController::class, 'configuracoes']);
-
-Route::get('/editar-perfil', [EventController::class, 'editarPerfil']);
-
-Route::get('/excluir-conta', [EventController::class, 'excluirConta']);
-
-Route::get('/informacoes', [EventController::class, 'informacoes']);
-
-Route::get('/meu-perfil', [EventController::class, 'meuPerfil']);
-
-Route::get('/minha-caderneta', [EventController::class, 'minhaCaderneta']);
-
-Route::get('/redefinir-senha', [EventController::class, 'redefinirSenha']);
-
-Route::get('/vacina', [EventController::class, 'vacina']);
-
-
-
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
