@@ -19,4 +19,10 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    Route::get('/admin/vacina', [App\Http\Controllers\VacinaController::class, 'create'])->name('vacinas.create');
+    Route::post('/admin/vacina', [App\Http\Controllers\VacinaController::class, 'store'])->name('vacinas.store');
+    Route::get('/vacinas', [App\Http\Controllers\VacinaController::class, 'index'])->name('vacinas.index');
+});
