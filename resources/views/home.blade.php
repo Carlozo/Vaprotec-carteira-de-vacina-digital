@@ -15,13 +15,15 @@
                                         <h4 class="card-title text-success text-center">Acesso Rápido</h4>
                                         <div class="d-flex justify-content-center">
                                             <div class="p-2">
-                                                <a href="vacina.php" class="btn btn-outline-success me-2">
-                                                    <img src="{{asset('images/vacina1.png')}}" width="60">
+                                                <a href="{{ route('vacinas.usuario.create') }}"
+                                                   class="btn btn-outline-success me-2">
+                                                    <img src="{{asset('images/vacina1.png')}}" width="60" alt="">
                                                 </a>
                                             </div>
                                             <div class="p-2">
-                                                <a href="calendario.php" class="btn btn-outline-success">
-                                                    <img src="{{'images/calendario1.png'}}" width="60">
+                                                <a href="{{ route('vacinas.calendario') }}"
+                                                   class="btn btn-outline-success">
+                                                    <img src="{{'images/calendario1.png'}}" width="60" alt="">
                                                 </a>
                                             </div>
                                         </div>
