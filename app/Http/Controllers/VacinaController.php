@@ -17,11 +17,6 @@ class VacinaController extends Controller
         return view('vacinas.informacoes');
     }
 
-    public function showCalendario()
-    {
-        return view('vacinas.calendario');
-    }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -93,5 +88,11 @@ class VacinaController extends Controller
     public function destroy(Vacina $vacina)
     {
         //
+    }
+
+
+    public function showCalendario()
+    {
+        return view('vacinas.calendario');
     }
 }
