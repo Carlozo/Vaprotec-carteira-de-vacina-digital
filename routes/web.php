@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\VacinaController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,3 +27,5 @@ Route::middleware('auth')->group(function () {
     Route::post('/admin/vacina', [App\Http\Controllers\VacinaController::class, 'store'])->name('vacinas.store');
     Route::get('/vacinas', [App\Http\Controllers\VacinaController::class, 'index'])->name('vacinas.index');
 });
+
+Route::get('/calendario', [VacinaController::class, 'showCalendario'])->name('vacinas.calendario.index');
