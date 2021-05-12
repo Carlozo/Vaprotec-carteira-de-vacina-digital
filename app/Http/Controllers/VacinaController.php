@@ -95,4 +95,9 @@ class VacinaController extends Controller
     {
         return view('vacinas.calendario');
     }
+
+    public function showMenuVacina()
+    {
+        return view('vacinas.vacina');
+    }
 }
