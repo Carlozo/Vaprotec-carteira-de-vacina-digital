@@ -15,7 +15,7 @@
                                         <h4 class="card-title text-success text-center">Acesso Rápido</h4>
                                         <div class="d-flex justify-content-center">
                                             <div class="p-2">
-                                                <a href="{{ route('vacinas.usuario.create') }}"
+                                                <a href="{{ route('doses.create') }}"
                                                    class="btn btn-outline-success me-2">
                                                     <img src="{{asset('images/vacina1.png')}}" width="60" alt="">
                                                 </a>

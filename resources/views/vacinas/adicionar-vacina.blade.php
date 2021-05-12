@@ -10,12 +10,12 @@
                         <h4>Adicione Vacina a sua Cardeneta</h4>
                     </div>
                     <div class="card-body">
-                        <form action="{{ route('vacinas.usuario.create') }}" method="post">
+                        <form action="{{ route('doses.store') }}" method="post">
                             @csrf
 
                             <div class="mb-3">
-                                <label for="vacina" class="form-label">Vacina</label>
-                                <select name="vacina" id="vacina" class="custom-select" required>
+                                <label for="vacina_id" class="form-label">Vacina</label>
+                                <select name="vacina_id" id="vacina_id" class="custom-select" required>
                                     @foreach($vacinas as $vacina)
                                         <option value="{{$vacina->id}}">{{$vacina->nome}}</option>
                                     @endforeach
@@ -24,12 +24,16 @@
 
                             <div class="mb-3">
                                 <label for="data" class="form-label">Data</label>
-                                <input type="date" id="data" name="data" class="form-control" required>
+                                <input type="date" id="data" name="data" @if(old('data')) value="{{ old('data') }}"
+                                       @else value="{{ Carbon\Carbon::now()->toDateString() }}"
+                                       @endif class="form-control"
+                                       required>
                             </div>
 
                             <div class="mb-3">
                                 <label for="observacoes" class="form-label">Observações</label>
-                                <textarea name="observacoes" id="observacoes" rows="2" class="form-control"></textarea>
+                                <textarea name="observacoes" id="observacoes" rows="2"
+                                          class="form-control">{{ old('observacoes') }}</textarea>
                             </div>
 
                             <div class="row justify-content-center">

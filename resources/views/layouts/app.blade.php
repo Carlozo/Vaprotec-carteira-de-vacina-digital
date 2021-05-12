@@ -45,7 +45,7 @@
                         <a class="nav-link" href="{{ route('usuarios.meu-perfil') }}">Meu Perfil</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('vacinas.usuario.create') }}">Vacina</a>
+                        <a class="nav-link" href="{{ route('doses.create') }}">Vacina</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('vacinas.calendario') }}">Calendário</a>

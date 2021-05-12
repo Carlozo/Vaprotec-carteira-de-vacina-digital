@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\DoseVacinaController;
 use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\VacinaController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -35,8 +37,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/usuario/caderneta', [UsuarioController::class, 'showCaderneta'])->name('usuarios.minha-caderneta');
     Route::get('/configuracoes', [UsuarioController::class, 'showConfiguracoes'])->name('usuarios.configuracoes');
 
-    Route::get('/vacinas/add', [VacinaController::class, 'createVacinaUsuario'])->name('vacinas.usuario.create');
-    Route::post('/vacinas/add', [VacinaController::class, 'storeVacinaUsuario'])->name('vacinas.usuario.store');
+    Route::get('/vacinas/add', [DoseVacinaController::class, 'create'])->name('doses.create');
+    Route::post('/vacinas/add', [DoseVacinaController::class, 'store'])->name('doses.store');
 });
 
 Route::get('/calendario', [VacinaController::class, 'showCalendario'])->name('vacinas.calendario');
