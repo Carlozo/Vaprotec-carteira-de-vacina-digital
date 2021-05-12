@@ -17,7 +17,9 @@ class UsuarioController extends Controller
 
     public function showCaderneta()
     {
-        return view('usuarios.minha-caderneta');
+        return view('usuarios.minha-caderneta', [
+            'usuario' => auth()->user()
+        ]);
     }
 
     public function showConfiguracoes()

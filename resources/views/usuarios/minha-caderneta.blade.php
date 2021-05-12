@@ -26,7 +26,7 @@
                     </div>
 
                     <div class="col-10">
-                        <h5 class="fw-bolder">{{ auth()->user()->name }} - {{ auth()->user()->age() }} anos</h5>
+                        <h5 class="fw-bolder">{{ $usuario->name }} - {{ $usuario->age() }} anos</h5>
                     </div>
                 </div>
             </div>
@@ -39,14 +39,12 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <td>Corona Virus</td>
-                        <td>21/06/2021</td>
-                    </tr>
-                    <tr>
-                        <td>Corona Virus</td>
-                        <td>21/06/2021</td>
-                    </tr>
+                    @foreach($usuario->doses as $dose)
+                        <tr>
+                            <td>{{ $dose->vacina->nome }}</td>
+                            <td>{{ \Carbon\Carbon::parse($dose->data)->format('d/m/Y') }}</td>
+                        </tr>
+                    @endforeach
                     </tbody>
                 </table>
                 <div class="d-flex justify-content-center align-items-center">
