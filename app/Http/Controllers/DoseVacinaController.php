@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\DoseVacina;
 use App\Models\Vacina;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
-class VacinaController extends Controller
+class DoseVacinaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +16,7 @@ class VacinaController extends Controller
      */
     public function index()
     {
-        return view('vacinas.informacoes');
+        //
     }
 
     /**
@@ -24,7 +26,9 @@ class VacinaController extends Controller
      */
     public function create()
     {
-        return view('vacinas.criar-vacina');
+        return view('vacinas.adicionar-vacina', [
+            'vacinas' => Vacina::all()
+        ]);
     }
 
     /**
@@ -36,22 +40,32 @@ class VacinaController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'nome' => ['required'],
-            'categoria' => ['required']
+            'vacina_id' => ['required', 'exists:vacinas,id'],
+            'data' => ['required'],
+            'observacoes' => ['max:255']
         ]);
 
-        Vacina::create($validatedData);
+        $dose = new DoseVacina;
+        $dose->user()->associate(Auth::user());
+        $dose->vacina()->associate(Vacina::find($validatedData['vacina_id']));
+        $dose->data = $validatedData['data'];
+        $dose->observacoes = $validatedData['observacoes'];
+        $dose->save();
 
-        return redirect()->route('vacinas.index');
+        // auth()->user()->doses()->create($validatedData);
+
+        session()->flash('successMessage', 'Vacina adicionada com sucesso!');
+
+        return redirect()->route('usuarios.minha-caderneta');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param \App\Models\Vacina $vacina
+     * @param \App\Models\DoseVacina $doseVacina
      * @return \Illuminate\Http\Response
      */
-    public function show(Vacina $vacina)
+    public function show(DoseVacina $doseVacina)
     {
         //
     }
@@ -59,10 +73,10 @@ class VacinaController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param \App\Models\Vacina $vacina
+     * @param \App\Models\DoseVacina $doseVacina
      * @return \Illuminate\Http\Response
      */
-    public function edit(Vacina $vacina)
+    public function edit(DoseVacina $doseVacina)
     {
         //
     }
@@ -71,10 +85,10 @@ class VacinaController extends Controller
      * Update the specified resource in storage.
      *
      * @param \Illuminate\Http\Request $request
-     * @param \App\Models\Vacina $vacina
+     * @param \App\Models\DoseVacina $doseVacina
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Vacina $vacina)
+    public function update(Request $request, DoseVacina $doseVacina)
     {
         //
     }
@@ -82,22 +96,11 @@ class VacinaController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param \App\Models\Vacina $vacina
+     * @param \App\Models\DoseVacina $doseVacina
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Vacina $vacina)
+    public function destroy(DoseVacina $doseVacina)
     {
         //
-    }
-
-
-    public function showCalendario()
-    {
-        return view('vacinas.calendario');
-    }
-
-    public function showMenuVacina()
-    {
-        return view('vacinas.vacina');
     }
 }

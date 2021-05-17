@@ -1,7 +1,23 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container mt-5 mb-5 w-50">
+    <div class="container w-50">
+        @if(session('successMessage'))
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                {{ session('successMessage') }}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        @elseif(session('errorMessage'))
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                {{ session('errorMessage') }}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        @endif
+
         <div class="card border border-1 border-primary shadow">
             <div class="card-header fw-bolder bg-primary text-white">
                 <div class="row justify-content-md-center d-flex align-items-center">
@@ -10,7 +26,7 @@
                     </div>
 
                     <div class="col-10">
-                        <h5 class="fw-bolder">{{ auth()->user()->name }} - {{ auth()->user()->age() }} anos</h5>
+                        <h5 class="fw-bolder">{{ $usuario->name }} - {{ $usuario->age() }} anos</h5>
                     </div>
                 </div>
             </div>
@@ -23,19 +39,17 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <td>Corona Virus</td>
-                        <td>21/06/2021</td>
-                    </tr>
-                    <tr>
-                        <td>Corona Virus</td>
-                        <td>21/06/2021</td>
-                    </tr>
+                    @foreach($usuario->doses as $dose)
+                        <tr>
+                            <td>{{ $dose->vacina->nome }}</td>
+                            <td>{{ \Carbon\Carbon::parse($dose->data)->format('d/m/Y') }}</td>
+                        </tr>
+                    @endforeach
                     </tbody>
                 </table>
                 <div class="d-flex justify-content-center align-items-center">
                     <a class="btn btn-primary fw-bolda" type="button"
-                       href="{{ route('vacinas.usuario.create') }}">
+                       href="{{ route('doses.create') }}">
                         <i class="fas fa-syringe" style="font-size: 1.5rem;"></i> Adicionar Vacina</a>
                 </div>
             </div>

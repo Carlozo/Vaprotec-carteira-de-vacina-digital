@@ -18,6 +18,10 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    <link rel="icon"
+          href="https://imunizarvacinas.com.br/wp-content/uploads/2018/02/Icon-seringa-03.png"
+          type="image/gif" sizes="16x16">
 </head>
 <body>
 <div id="app">
@@ -45,7 +49,7 @@
                         <a class="nav-link" href="{{ route('usuarios.meu-perfil') }}">Meu Perfil</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('vacinas.usuario.create') }}">Vacina</a>
+                        <a class="nav-link" href="{{ route('vacinas.menu') }}">Vacina</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('vacinas.calendario') }}">Calendário</a>
