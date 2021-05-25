@@ -22,6 +22,8 @@
     <link rel="icon"
           href="https://imunizarvacinas.com.br/wp-content/uploads/2018/02/Icon-seringa-03.png"
           type="image/gif" sizes="16x16">
+
+    @yield('head')
 </head>
 <body>
 <div id="app">
