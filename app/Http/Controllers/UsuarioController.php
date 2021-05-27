@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Dose;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -10,8 +11,21 @@ class UsuarioController extends Controller
 
     public function show()
     {
+        $usuario = auth()->user();
+
+        $idade = $usuario->age();
+
+        if ($idade == 0) {
+            $idade = $usuario->getAgeInMonths() / 100;
+        }
+
+        $doses_todas = Dose::where('idade', '<=', $idade)->get();
+
+        $doses_pendentes = $doses_todas->diff($usuario->doses);
+
         return view('usuarios.meu-perfil', [
-            'usuario' => auth()->user()
+            'usuario' => $usuario,
+            'total_doses_pendentes' => count($doses_pendentes)
         ]);
     }
 
