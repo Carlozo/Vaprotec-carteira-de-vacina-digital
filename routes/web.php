@@ -32,6 +32,7 @@ Route::middleware('auth')->group(function () {
     Route::put('/usuario/perfil-editar', [UsuarioController::class, 'update'])->name('usuarios.editar-perfil');
     Route::get('/usuario/caderneta', [UsuarioController::class, 'showCaderneta'])->name('usuarios.minha-caderneta');
     Route::get('/configuracoes', [UsuarioController::class, 'showConfiguracoes'])->name('usuarios.configuracoes');
+    Route::delete('/usuarios', [UsuarioController::class, 'destroy'])->name('usuarios.destroy');
 
     Route::get('/vacinas', [VacinaController::class, 'index'])->name('vacinas.index');
     Route::get('/menu-vacina', [VacinaController::class, 'showMenuVacina'])->name('vacinas.menu');

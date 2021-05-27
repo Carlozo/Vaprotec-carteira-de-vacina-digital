@@ -19,7 +19,9 @@ class CreateUsuarioDosesTable extends Migration
             $table->id();
             $table->date('data');
             $table->string('observacoes')->nullable();
-            $table->foreignIdFor(User::class);
+            $table->foreignIdFor(User::class)
+                    ->constrained()
+                    ->onDelete('cascade');
             $table->foreignIdFor(Dose::class);
         });
     }

@@ -74,6 +74,8 @@ class UsuarioController extends Controller
      */
     public function destroy()
     {
-        //
+        auth()->user()->delete();
+
+        return redirect()->route('login');
     }
 }
