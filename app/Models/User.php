@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Carbon\Carbon;
+use DateTime;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -50,6 +51,14 @@ class User extends Authenticatable
 
     public function doses()
     {
-        return $this->hasMany(DoseVacina::class);
+        return $this->hasMany(UsuarioDose::class);
     }
+
+    public function getAgeInMonths()
+    {
+        $birthday = new DateTime($this->attributes['birth_date']);
+        $diff = $birthday->diff(new DateTime());
+        return $diff->format('%m') + 12 * $diff->format('%y');
+    }
+
 }

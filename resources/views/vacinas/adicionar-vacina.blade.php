@@ -14,11 +14,17 @@
                             @csrf
 
                             <div class="mb-3">
-                                <label for="vacina_id" class="form-label">Vacina</label>
-                                <select name="vacina_id" id="vacina_id" class="custom-select" required>
+                                <label for="vacinas-select" class="form-label">Vacina</label>
+                                <select id="vacinas-select" class="custom-select">
                                     @foreach($vacinas as $vacina)
                                         <option value="{{$vacina->id}}">{{$vacina->nome}}</option>
                                     @endforeach
+                                </select>
+
+                            </div>
+                            <div id="dose-form-grop" class="form-group">
+                                <label for="dose">Dose</label>
+                                <select name="dose" id="dose" class="custom-select" required>
                                 </select>
                             </div>
 
@@ -46,4 +52,27 @@
             </div>
         </div>
     </div>
+
+    <script type="text/javascript">
+        let vacinas = @json($vacinas);
+
+        $('#vacinas-select').change(function () {
+            let vacinaSelecionada = $('#vacinas-select option:selected').val();
+            // let vacina = vacinas.find(vacina => vacina.id === vacinaSelecionada);
+
+            $.get('/vacinas/' + vacinaSelecionada + '/doses', function (doses) {
+                let count = 1;
+
+                $('#dose').empty();
+                $('#dose-form-grop').show();
+                doses.forEach(dose => {
+                    let option = document.createElement('option');
+                    option.value = dose.id;
+                    option.innerText = count + 'ª dose';
+                    $('#dose').append(option);
+                    count++;
+                });
+            });
+        });
+    </script>
 @endsection

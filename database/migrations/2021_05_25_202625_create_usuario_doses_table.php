@@ -1,10 +1,12 @@
 <?php
 
+use App\Models\Dose;
+use App\Models\User;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateVacinasTable extends Migration
+class CreateUsuarioDosesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +15,12 @@ class CreateVacinasTable extends Migration
      */
     public function up()
     {
-        Schema::create('vacinas', function (Blueprint $table) {
+        Schema::create('usuario_doses', function (Blueprint $table) {
             $table->id();
-            $table->string('nome');
-            $table->string('prevencoes')->nullable();
-            $table->string('observacoes_doses')->nullable();
-            $table->string('categoria');
+            $table->date('data');
+            $table->string('observacoes')->nullable();
+            $table->foreignIdFor(User::class);
+            $table->foreignIdFor(Dose::class);
         });
     }
 
@@ -29,6 +31,6 @@ class CreateVacinasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('vacinas');
+        Schema::dropIfExists('usuario_doses');
     }
 }

@@ -41,8 +41,8 @@
                     <tbody>
                     @foreach($usuario->doses as $dose)
                         <tr>
-                            <td>{{ $dose->vacina->nome }}</td>
-                            <td>{{ \Carbon\Carbon::parse($dose->data)->format('d/m/Y') }}</td>
+                            <td>{{ $dose->dose->vacina->nome }}</td>
+                            <td>{{ \Carbon\Carbon::parse($dose->dose->data)->format('d/m/Y') }}</td>
                         </tr>
                     @endforeach
                     </tbody>

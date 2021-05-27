@@ -36,11 +36,18 @@ class VacinaController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'nome' => ['required'],
-            'categoria' => ['required']
+            'nome' => ['required', 'max:255'],
+            'categoria' => ['required', 'max:255'],
+            'prevencoes' => ['max:255']
         ]);
 
-        Vacina::create($validatedData);
+        $vacina = Vacina::create($validatedData);
+
+        for ($i = 0; $i < count($request->idade); $i++) {
+            $vacina->doses()->create([
+                'idade' => $request->idade[$i]
+            ]);
+        }
 
         return redirect()->route('vacinas.index');
     }
@@ -99,5 +106,10 @@ class VacinaController extends Controller
     public function showMenuVacina()
     {
         return view('vacinas.vacina');
+    }
+
+    public function getDoses(Vacina $vacina)
+    {
+        return response()->json($vacina->doses);
     }
 }

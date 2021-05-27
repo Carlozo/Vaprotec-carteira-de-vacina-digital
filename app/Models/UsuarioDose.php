@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class DoseVacina extends Model
+class UsuarioDose extends Model
 {
     use HasFactory;
 
@@ -21,8 +21,8 @@ class DoseVacina extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function vacina()
+    public function dose()
     {
-        return $this->belongsTo(Vacina::class);
+        return $this->belongsTo(Dose::class);
     }
 }

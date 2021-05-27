@@ -5,20 +5,19 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Vacina extends Model
+class Dose extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'nome',
-        'prevencoes',
-        'categoria'
+        'idade',
+        'descricao'
     ];
 
     public $timestamps = false;
 
-    function doses()
+    function vacina()
     {
-        return $this->hasMany(Dose::class);
+        return $this->belongsTo(Vacina::class);
     }
 }
