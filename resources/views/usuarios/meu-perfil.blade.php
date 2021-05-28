@@ -32,7 +32,16 @@
             </div>
             <div class="card-body text-center">
                 <img src="{{ asset('images/vacina1.png') }}" width="60px" alt="">
-                <p class="h4 fw-bolder text-success">Vacinas estão em dia</p>
+
+                @if($total_doses_pendentes == 0)
+                    <p class="h4 font-weight-bold text-success">
+                        Vacinas estão em dia
+                    </p>
+                @else
+                    <p class="h4 font-weight-bold text-danger">
+                        Você tem {{ $total_doses_pendentes }} doses de Vacinas pendentes
+                    </p>
+                @endif
 
                 <a class="btn btn-info mt-3" href="{{ route('usuarios.minha-caderneta') }}">
                     <img src="{{ asset('images/calendario1.png') }}" width="60px" alt="">

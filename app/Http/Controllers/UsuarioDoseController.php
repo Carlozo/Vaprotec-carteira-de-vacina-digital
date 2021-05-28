@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\DoseVacina;
+use App\Models\Dose;
+use App\Models\UsuarioDose;
 use App\Models\Vacina;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class DoseVacinaController extends Controller
+class UsuarioDoseController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -40,21 +41,19 @@ class DoseVacinaController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'vacina_id' => ['required', 'exists:vacinas,id'],
+            'dose' => ['required', 'exists:doses,id'],
             'data' => ['required'],
             'observacoes' => ['max:255']
         ]);
 
-        $dose = new DoseVacina;
+        $dose = new UsuarioDose;
         $dose->user()->associate(Auth::user());
-        $dose->vacina()->associate(Vacina::find($validatedData['vacina_id']));
+        $dose->dose()->associate(Dose::find($validatedData['dose']));
         $dose->data = $validatedData['data'];
         $dose->observacoes = $validatedData['observacoes'];
         $dose->save();
 
-        // auth()->user()->doses()->create($validatedData);
-
-        session()->flash('successMessage', 'Vacina adicionada com sucesso!');
+        session()->flash('successMessage', 'Dose da vacina adicionada com sucesso!');
 
         return redirect()->route('usuarios.minha-caderneta');
     }
@@ -62,10 +61,10 @@ class DoseVacinaController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param \App\Models\DoseVacina $doseVacina
+     * @param \App\Models\UsuarioDose $usuarioDose
      * @return \Illuminate\Http\Response
      */
-    public function show(DoseVacina $doseVacina)
+    public function show(UsuarioDose $usuarioDose)
     {
         //
     }
@@ -73,10 +72,10 @@ class DoseVacinaController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param \App\Models\DoseVacina $doseVacina
+     * @param \App\Models\UsuarioDose $usuarioDose
      * @return \Illuminate\Http\Response
      */
-    public function edit(DoseVacina $doseVacina)
+    public function edit(UsuarioDose $usuarioDose)
     {
         //
     }
@@ -85,10 +84,10 @@ class DoseVacinaController extends Controller
      * Update the specified resource in storage.
      *
      * @param \Illuminate\Http\Request $request
-     * @param \App\Models\DoseVacina $doseVacina
+     * @param \App\Models\UsuarioDose $usuarioDose
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, DoseVacina $doseVacina)
+    public function update(Request $request, UsuarioDose $usuarioDose)
     {
         //
     }
@@ -96,10 +95,10 @@ class DoseVacinaController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param \App\Models\DoseVacina $doseVacina
+     * @param \App\Models\UsuarioDose $usuarioDose
      * @return \Illuminate\Http\Response
      */
-    public function destroy(DoseVacina $doseVacina)
+    public function destroy(UsuarioDose $usuarioDose)
     {
         //
     }

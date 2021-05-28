@@ -2,17 +2,17 @@
 
 namespace Database\Factories;
 
-use App\Models\DoseVacina;
+use App\Models\Dose;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class DoseVacinaFactory extends Factory
+class DoseFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = DoseVacina::class;
+    protected $model = Dose::class;
 
     /**
      * Define the model's default state.

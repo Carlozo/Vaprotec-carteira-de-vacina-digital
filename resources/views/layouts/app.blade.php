@@ -11,6 +11,8 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -22,6 +24,8 @@
     <link rel="icon"
           href="https://imunizarvacinas.com.br/wp-content/uploads/2018/02/Icon-seringa-03.png"
           type="image/gif" sizes="16x16">
+
+    @yield('head')
 </head>
 <body>
 <div id="app">

@@ -71,16 +71,20 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    Lembre-se de que esta ação excluirá sua conta permanentemente e sua conta não será recuperada depois
-                    que você seguir esse processo, sendo assim todas as informações associadas a ela como
-                    os dados do perfil e as doses de vacinas tomadas serão excluídas também.
+                    Lembre-se de que esta ação excluirá sua conta permanentemente e todas as informações associadas a
+                    ela como os dados do perfil e as doses de vacinas já tomadas.
                     <br>
                     <br>
                     Tem certeza que deseja excluir sua conta?
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-danger">SIM, EXCLUIR</button>
+
+                    <form action="{{ route('usuarios.destroy') }}" method="post">
+                        @csrf
+                        @method('delete')
+                        <button type="submit" class="btn btn-danger">SIM, EXCLUIR</button>
+                    </form>
                 </div>
             </div>
         </div>

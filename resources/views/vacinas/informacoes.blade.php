@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('head')
+    <link href="{{ asset('css/info-style.css') }}" rel="stylesheet">
+@endsection
+
 @section('content')
     <div class="container">
         <div class="a2">
@@ -519,17 +523,14 @@
                     Enquanto a vacinação não alcança a maior parte dos brasileiros, a recomendação de manter o
                     distanciamento
                     social e o uso de máscara continua.
-
                     <br>
                 </p>
-
-
             </article>
         </div>
         <div class="a4">
             <article>
                 <div class="azul">
-                    <img src="../images/info.png" alt="">
+                    <img src="{{ asset('images/info.png') }}" alt="">
                     <h2>Referências </h2>
                 </div>
                 <h3 id="referencias">Sites</h3>
