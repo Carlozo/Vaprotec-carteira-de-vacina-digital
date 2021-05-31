@@ -1,5 +1,10 @@
 @extends('layouts.app')
 
+@section('head')
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet"/>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+@endsection
+
 @section('content')
     <div class="container mb-3">
         <div class="row">
@@ -16,12 +21,9 @@
                             <div class="mb-3">
                                 <label for="vacinas-select" class="form-label">Vacina</label>
                                 <select id="vacinas-select" class="custom-select">
-                                    @foreach($vacinas as $vacina)
-                                        <option value="{{$vacina->id}}">{{$vacina->nome}}</option>
-                                    @endforeach
                                 </select>
-
                             </div>
+
                             <div id="dose-form-grop" class="form-group">
                                 <label for="dose">Dose</label>
                                 <select name="dose" id="dose" class="custom-select" required>
@@ -48,7 +50,6 @@
                         </form>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>
@@ -56,15 +57,39 @@
     <script type="text/javascript">
         let vacinas = @json($vacinas);
 
+        if (vacinas.length > 0) {
+            let i = 0;
+            var data = [{
+                text: vacinas[i].categoria,
+                children: []
+            }];
+
+            vacinas.forEach(vacina => {
+                if (vacina.categoria !== data[i].text) {
+                    i++;
+                    data.push({
+                        text: vacina.categoria,
+                        children: []
+                    });
+                }
+
+                vacina.text = vacina.nome;
+                data[i].children.push(vacina);
+            });
+
+            $('#vacinas-select').select2({
+                data: data
+            });
+        }
+
         $('#vacinas-select').change(function () {
             let vacinaSelecionada = $('#vacinas-select option:selected').val();
-            // let vacina = vacinas.find(vacina => vacina.id === vacinaSelecionada);
 
             $.get('/vacinas/' + vacinaSelecionada + '/doses', function (doses) {
-                let count = 1;
-
                 $('#dose').empty();
                 $('#dose-form-grop').show();
+
+                let count = 1;
                 doses.forEach(dose => {
                     let option = document.createElement('option');
                     option.value = dose.id;
