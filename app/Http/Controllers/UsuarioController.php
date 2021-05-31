@@ -21,7 +21,9 @@ class UsuarioController extends Controller
 
         $doses_todas = Dose::where('idade', '<=', $idade)->get();
 
-        $doses_pendentes = $doses_todas->diff($usuario->doses);
+        $doses_pendentes = $doses_todas->diff($usuario->doses->map(function ($usuario_dose) {
+            return $usuario_dose->dose;
+        }));
 
         return view('usuarios.meu-perfil', [
             'usuario' => $usuario,
