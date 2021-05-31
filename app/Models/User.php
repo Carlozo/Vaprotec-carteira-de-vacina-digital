@@ -44,14 +44,14 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function age()
-    {
-        return Carbon::parse($this->attributes['birth_date'])->age;
-    }
-
     public function doses()
     {
         return $this->hasMany(UsuarioDose::class);
+    }
+
+    public function age()
+    {
+        return Carbon::parse($this->attributes['birth_date'])->age;
     }
 
     public function getAgeInMonths()
@@ -59,6 +59,27 @@ class User extends Authenticatable
         $birthday = new DateTime($this->attributes['birth_date']);
         $diff = $birthday->diff(new DateTime());
         return $diff->format('%m') + 12 * $diff->format('%y');
+    }
+
+    function getDescricaoIdade()
+    {
+        $idade = $this->age();
+
+        if ($idade > 0) {
+            if ($idade == 1) {
+                return $idade . ' ano';
+            } else {
+                return $idade . ' anos';
+            }
+        }
+
+        $idade = $this->getAgeInMonths();
+
+        if ($idade > 0) {
+            return $idade . ' meses';
+        } else {
+            return 'Menos de um mês';
+        }
     }
 
 }
