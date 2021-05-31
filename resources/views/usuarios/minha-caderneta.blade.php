@@ -26,7 +26,7 @@
                     </div>
 
                     <div class="col-10">
-                        <h5 class="fw-bolder">{{ $usuario->name }} - {{ $usuario->age() }} anos</h5>
+                        <h5 class="fw-bolder">{{ $usuario->name . ' - ' .$usuario->getDescricaoIdade() }}</h5>
                     </div>
                 </div>
             </div>
