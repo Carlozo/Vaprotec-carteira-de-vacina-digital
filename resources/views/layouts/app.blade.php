@@ -19,6 +19,7 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
+    <link href="{{ asset('css/header-footer.css') }}" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
     <link rel="icon"
@@ -29,7 +30,7 @@
 </head>
 <body>
 <div id="app">
-    <nav class="navbar navbar-expand-md navbar-dark bg-primary shadow-sm">
+    <nav id="header" class="navbar navbar-expand-md navbar-dark bg-primary shadow-sm">
         <div class="container">
             @guest
                 <a class="navbar-brand" href="{{ url('/') }}">

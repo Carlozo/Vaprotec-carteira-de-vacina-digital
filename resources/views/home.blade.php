@@ -12,17 +12,17 @@
                             <div class="col-md-6">
                                 <div class="card mt-3 shadow">
                                     <div class="card-body">
-                                        <h4 class="card-title text-success text-center">Acesso Rápido</h4>
+                                        <h4 class="card-title text-center">Acesso Rápido</h4>
                                         <div class="d-flex justify-content-center">
                                             <div class="p-2">
                                                 <a href="{{ route('doses.create') }}"
-                                                   class="btn btn-outline-success me-2">
+                                                   class="caixa-home btn btn-outline-success me-2">
                                                     <img src="{{asset('images/vacina1.png')}}" width="60" alt="">
                                                 </a>
                                             </div>
                                             <div class="p-2">
                                                 <a href="{{ route('vacinas.calendario') }}"
-                                                   class="btn btn-outline-success">
+                                                   class="caixa-home btn btn-outline-success">
                                                     <img src="{{'images/calendario1.png'}}" width="60" alt="">
                                                 </a>
                                             </div>
@@ -34,7 +34,7 @@
                             <div class="col-md-6">
                                 <div class="card mt-3 shadow">
                                     <div class="card-body">
-                                        <h4 class="card-title text-success text-center">Informações</h4>
+                                        <h4 class="card-title text-center">Informações</h4>
                                         <p class="card-text">CoronaVac é uma vacina contra a COVID-19 desenvolvida pela
                                             companhia biofarmacêutica
                                             chinesa Sinovac Biotech em parceria com o Instituto Butantan.</p>

@@ -2438,13 +2438,16 @@ fieldset:disabled a.btn {
 
 .btn-primary {
   color: #fff;
-  background-color: #3490dc;
-  border-color: #3490dc;
+  background-color: #004e92;
+  border-color: #004e92;
 }
 .btn-primary:hover {
   color: #fff;
-  background-color: #227dc7;
-  border-color: #2176bd;
+  background: #000428;
+  background: -webkit-linear-gradient(to right, #004e92, #000428);
+  background: linear-gradient(to right, #004e92, #000428);
+  border-color: black;
+  transition: 3s ease-in;
 }
 .btn-primary:focus, .btn-primary.focus {
   color: #fff;
@@ -2527,14 +2530,18 @@ fieldset:disabled a.btn {
 }
 
 .btn-info {
-  color: #212529;
-  background-color: #6cb2eb;
-  border-color: #6cb2eb;
+  color: white;
+  background-color: #3373ac;
+  border-color: black;
 }
 .btn-info:hover {
   color: #fff;
-  background-color: #4aa0e6;
-  border-color: #3f9ae5;
+  color: #fff;
+  background: #000428;
+  background: -webkit-linear-gradient(to right, #004e92, #000428);
+  background: linear-gradient(to right, #004e92, #000428);
+  border-color: black;
+  transition: 2s;
 }
 .btn-info:focus, .btn-info.focus {
   color: #fff;
@@ -2593,7 +2600,9 @@ fieldset:disabled a.btn {
 }
 .btn-danger:hover {
   color: #fff;
-  background-color: #d0211c;
+  background: #333333;  
+  background: -webkit-linear-gradient(to right, #dd1818, #333333); 
+  background: linear-gradient(to right, #dd1818, #333333);
   border-color: #c51f1a;
 }
 .btn-danger:focus, .btn-danger.focus {
@@ -2727,13 +2736,14 @@ fieldset:disabled a.btn {
 }
 
 .btn-outline-success {
-  color: #38c172;
-  border-color: #38c172;
+  color: black;
+  border-color: black;
 }
 .btn-outline-success:hover {
   color: #fff;
-  background-color: #38c172;
-  border-color: #38c172;
+  background-color: #1360a3;
+  border-color: #004e92;
+  transition: 1s;
 }
 .btn-outline-success:focus, .btn-outline-success.focus {
   box-shadow: 0 0 0 0.2rem rgba(56, 193, 114, 0.5);
@@ -2878,11 +2888,11 @@ fieldset:disabled a.btn {
 
 .btn-link {
   font-weight: 400;
-  color: #3490dc;
+  color: #004e92;
   text-decoration: none;
 }
 .btn-link:hover {
-  color: #1d68a7;
+  color: #000428;
   text-decoration: underline;
 }
 .btn-link:focus, .btn-link.focus {
@@ -6101,7 +6111,7 @@ a.close.disabled {
 }
 
 .bg-primary {
-  background-color: #3490dc !important;
+  background-color: #004e92 !important;
 }
 
 a.bg-primary:hover, a.bg-primary:focus,
@@ -6131,7 +6141,7 @@ button.bg-success:focus {
 }
 
 .bg-info {
-  background-color: #6cb2eb !important;
+  background-color: #3373ac !important;
 }
 
 a.bg-info:hover, a.bg-info:focus,
