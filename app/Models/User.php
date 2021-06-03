@@ -61,6 +61,17 @@ class User extends Authenticatable
         return $diff->format('%m') + 12 * $diff->format('%y');
     }
 
+    public function getIdadeDecimal()
+    {
+        $idade = $this->age();
+
+        if ($idade == 0) {
+            $idade = $this->getAgeInMonths() / 100;
+        }
+
+        return $idade;
+    }
+
     function getDescricaoIdade()
     {
         $idade = $this->age();
@@ -80,6 +91,13 @@ class User extends Authenticatable
         } else {
             return 'Menos de um mês';
         }
+    }
+
+    public function getDoses()
+    {
+        return $this->doses->map(function ($usuario_dose) {
+            return $usuario_dose->dose;
+        });
     }
 
 }

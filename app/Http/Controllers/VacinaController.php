@@ -110,6 +110,7 @@ class VacinaController extends Controller
 
     public function getDoses(Vacina $vacina)
     {
-        return response()->json($vacina->doses);
+        // TODO verificar se a dose da vacina pode ser tomada varias vezes
+        return response()->json($vacina->doses->diff(auth()->user()->getDoses()));
     }
 }

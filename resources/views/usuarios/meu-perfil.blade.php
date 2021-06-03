@@ -39,7 +39,7 @@
                     </p>
                 @else
                     <p class="h4 font-weight-bold text-danger">
-                        Você tem {{ $total_doses_pendentes }} doses de Vacinas pendentes
+                        Você tem {{ $total_doses_pendentes }} doses de vacinas pendentes
                     </p>
                 @endif
 

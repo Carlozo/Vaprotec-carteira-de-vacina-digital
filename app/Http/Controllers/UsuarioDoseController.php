@@ -27,8 +27,23 @@ class UsuarioDoseController extends Controller
      */
     public function create()
     {
+        $usuario = auth()->user();
+
+        $doses_tomadas = $usuario->getDoses();
+        $idade_limite = $usuario->getIdadeDecimal();
+
+        $vacinas = collect();
+
+        foreach (Vacina::all() as $vacina) {
+            // TODO verificar se vacina (gestante) pode ser tomada varias vezes
+
+            if (count($vacina->doses()->where('idade', '<=', $idade_limite)->get()->diff($doses_tomadas)) > 0) {
+                $vacinas->add($vacina);
+            }
+        }
+
         return view('vacinas.adicionar-vacina', [
-            'vacinas' => Vacina::all()
+            'vacinas' => $vacinas
         ]);
     }
 
