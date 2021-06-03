@@ -51,16 +51,22 @@
                 <!-- Left Side Of Navbar -->
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('usuarios.meu-perfil') }}">Meu Perfil</a>
+                        <a class="nav-link {{ Request::is('usuario/*') ? 'active' : '' }}"
+                           href="{{ route('usuarios.meu-perfil') }}">Meu Perfil</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('vacinas.menu') }}">Vacina</a>
+                        <a class="nav-link {{
+                            Request::is('vacinas') || Request::is('vacinas/*') || Request::is('menu-vacina') ?
+                            'active' : '' }}"
+                           href="{{ route('vacinas.menu') }}">Vacina</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('vacinas.calendario') }}">Calendário</a>
+                        <a class="nav-link {{ Request::is('calendario') ? 'active' : '' }}"
+                           href="{{ route('vacinas.calendario') }}">Calendário</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('usuarios.configuracoes') }}">Configurações</a>
+                        <a class="nav-link {{ Request::is('configuracoes') ? 'active' : '' }}"
+                           href="{{ route('usuarios.configuracoes') }}">Configurações</a>
                     </li>
                 </ul>
 
@@ -70,13 +76,15 @@
                     @guest
                         @if (Route::has('login'))
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Entrar') }}</a>
+                                <a class="nav-link {{ Request::is('login') ? 'active' : '' }}"
+                                   href="{{ route('login') }}">{{ __('Entrar') }}</a>
                             </li>
                         @endif
 
                         @if (Route::has('register'))
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('register') }}">{{ __('Cadastrar-se') }}</a>
+                                <a class="nav-link {{ Request::is('register') ? 'active' : '' }}"
+                                   href="{{ route('register') }}">{{ __('Cadastrar-se') }}</a>
                             </li>
                         @endif
                     @else
