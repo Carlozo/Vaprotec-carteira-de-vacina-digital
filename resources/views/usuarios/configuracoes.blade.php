@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('head')
+    <script src="https://kit.fontawesome.com/c40b2d583b.js" crossorigin="anonymous"></script>
+@endsection
+
 @section('content')
     <div class="container mt-3">
         <div class="row">
@@ -7,7 +11,7 @@
                 <div class="card border border-1 border-primary shadow">
                     <div class="card-header text-center bg-primary text-white">
                         <img src="{{ asset('images/vacina1.png') }}" alt="" width="50">
-                        <h4>Configurações</h4>
+                        <h4 class="mt-1">Configurações</h4>
                     </div>
                     <div class="card-body">
                         <div>
@@ -16,7 +20,7 @@
                         <hr>
                         <div class="d-flex justify-content-between align-items-center">
                             <div class="d-flex justify-content-center align-items-center">
-                                <i class="fas fa-id-badge me-3" style="font-size: 30px;"></i>
+                                <i class="fas fa-id-badge mr-2" style="font-size: 30px;"></i>
                                 <span>Alterar dados</span>
                             </div>
                             <a class="btn-primary btn" href="{{ route('usuarios.editar-perfil') }}">Alterar</a>
@@ -24,7 +28,7 @@
                         <hr>
                         <div class="d-flex justify-content-between align-items-center">
                             <div class="d-flex justify-content-center align-items-center">
-                                <i class="fas fa-unlock me-3" style="font-size: 30px;"></i>
+                                <i class="fas fa-unlock mr-2" style="font-size: 30px;"></i>
                                 <span>Senha</span>
                             </div>
                             <a class="btn-primary btn" href="{{ route('password.request') }}">Alterar</a>
@@ -32,7 +36,7 @@
                         <hr>
                         <div class="d-flex justify-content-between align-items-center">
                             <div class="d-flex justify-content-center align-items-center">
-                                <i class="fas fa-trash me-3" style="font-size: 30px;"></i>
+                                <i class="fas fa-trash mr-2" style="font-size: 30px;"></i>
                                 <span>Minha Conta</span>
                             </div>
                             <button type="button" class="btn btn-danger" data-toggle="modal"
@@ -42,12 +46,12 @@
                         </div>
                         <hr>
                         <div class="d-flex justify-content-center align-items-center">
-                            <a class="btn btn-warning h5" href="{{ route('logout') }}"
-                               onclick="event.preventDefault();
+                            <button class="btn btn-warning"
+                                    onclick="event.preventDefault();
                                         document.getElementById('logout-form').submit();">
-                                <i class="fas fa-sign-out-alt me-3" style="font-size: 20px;"></i>
+                                <i class="fa fa-sign-out-alt mr-2"></i>
                                 {{ __('Sair') }}
-                            </a>
+                            </button>
 
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                 @csrf

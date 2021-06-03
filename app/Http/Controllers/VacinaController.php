@@ -24,7 +24,30 @@ class VacinaController extends Controller
      */
     public function create()
     {
-        return view('vacinas.criar-vacina');
+        $idades = collect();
+        $idades->add(['idade' => -1, 'descricao' => 'Indefinida']);
+
+        for ($i = 0; $i <= 11; $i++) {
+            if ($i == 0) {
+                $idades->add(['idade' => $i / 100, 'descricao' => 'Ao nascer']);
+            } else if ($i == 1) {
+                $idades->add(['idade' => $i / 100, 'descricao' => '1 mês']);
+            } else {
+                $idades->add(['idade' => $i / 100, 'descricao' => $i . ' meses']);
+            }
+        }
+
+        for ($i = 1; $i <= 60; $i++) {
+            if ($i == 1) {
+                $idades->add(['idade' => $i, 'descricao' => '1 ano']);
+            } else {
+                $idades->add(['idade' => $i, 'descricao' => $i . ' anos']);
+            }
+        }
+
+        return view('vacinas.criar-vacina', [
+            'idades' => $idades
+        ]);
     }
 
     /**
@@ -49,7 +72,9 @@ class VacinaController extends Controller
             ]);
         }
 
-        return redirect()->route('vacinas.index');
+        session()->flash('successMessage', 'Vacina ' . $vacina->nome . ' foi criada com sucesso!');
+
+        return redirect()->route('vacinas.create');
     }
 
     /**

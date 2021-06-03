@@ -19,19 +19,20 @@
         @endif
 
         <div class="card border border-1 border-primary shadow">
-            <div class="card-header fw-bolder bg-primary text-white">
+            <div class="card-header font-weight-bold bg-primary text-white">
                 <div class="row justify-content-md-center d-flex align-items-center">
                     <div class="col-md-2">
                         <img src="{{ asset('images/usuario1.png') }}" width="55px" alt="">
                     </div>
 
-                    <div class="col-10">
-                        <h5 class="fw-bolder">{{ $usuario->name }} - {{ $usuario->getDescricaoIdade() }}</h5>
+                    <div class="col-md-10">
+                        <h5 class="font-weight-bold my-auto">{{ $usuario->name }}
+                            - {{ $usuario->getDescricaoIdade() }}</h5>
                     </div>
                 </div>
             </div>
             <div class="card-body text-center">
-                <img src="{{ asset('images/vacina1.png') }}" width="60px" alt="">
+                <img class="mb-3" src="{{ asset('images/vacina1.png') }}" width="60px" alt="">
 
                 @if($total_doses_pendentes == 0)
                     <p class="h4 font-weight-bold text-success">

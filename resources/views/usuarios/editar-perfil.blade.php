@@ -12,7 +12,6 @@
                     <div class="card-body">
                         <form action="{{ route('usuarios.editar-perfil') }}" method="post">
                             @csrf
-
                             @method('PUT')
 
                             <div class="mb-3">
@@ -28,31 +27,32 @@
 
                             <div class="mb-3">
                                 <label for="email">E-mail</label>
-                                <input id="email" class="form-control" value="{{ $usuario->email }}" disabled/>
+                                <input type="email" id="email" class="form-control" value="{{ $usuario->email }}"
+                                       disabled>
                             </div>
 
                             <div class="mb-3">
                                 <label>Sexo</label>
                                 <div class="form-check">
                                     <input class="form-check-input" type="radio" name="gender"
-                                           id="exampleRadios1" value="Masculino"
+                                           id="masculino-radio" value="Masculino"
                                            @if($usuario->gender == 'Masculino') checked @endif>
-                                    <label class="form-check-label" for="exampleRadios1">
+                                    <label class="form-check-label" for="masculino-radio">
                                         Masculino
                                     </label>
                                 </div>
                                 <div class="form-check">
                                     <input class="form-check-input" type="radio" name="gender"
-                                           id="exampleRadios2" value="Feminino"
+                                           id="feminino-radio" value="Feminino"
                                            @if($usuario->gender == 'Feminino') checked @endif>
-                                    <label class="form-check-label" for="exampleRadios2">
+                                    <label class="form-check-label" for="feminino-radio">
                                         Feminino
                                     </label>
                                 </div>
                             </div>
 
                             <div class="row justify-content-center">
-                                <button class="btn btn-primary fw-bold col-md-6" type="submit">Salvar</button>
+                                <button class="btn btn-primary font-weight-bold col-md-6" type="submit">Salvar</button>
                             </div>
                         </form>
                     </div>

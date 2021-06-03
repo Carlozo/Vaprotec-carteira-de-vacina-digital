@@ -8,11 +8,22 @@
 @section('content')
     <div class="container mb-3">
         <div class="row">
-            <div class="col-lg-6 col-md-6 mx-auto">
+            <div class="col-lg-8 col-md-8 mx-auto">
+                @if(count($vacinas) == 0)
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        Você não tem nenhuma vacina pendente. <br> Para mais informações consulte nosso <a
+                            href="{{ route('vacinas.calendario') }}">Calendário Nacional de Vacinação</a> e veja quando
+                        será sua próxima vacina!
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                @endif
+
                 <div class="card mt-4 border border-1 border-primary shadow">
                     <div class="card-header text-center bg-primary text-white">
                         <img src="{{ asset('images/vacina1.png') }} " alt="" width="50">
-                        <h4>Adicione Vacina a sua Cardeneta</h4>
+                        <h4 class="mt-1">Adicione a Vacina a sua Cardeneta</h4>
                     </div>
                     <div class="card-body">
                         <form action="{{ route('doses.store') }}" method="post">
@@ -24,7 +35,7 @@
                                 </select>
                             </div>
 
-                            <div id="dose-form-grop" class="form-group">
+                            <div id="dose-form-grop" class="form-group" hidden>
                                 <label for="dose">Dose</label>
                                 <select name="dose" id="dose" class="custom-select" required>
                                 </select>
@@ -38,14 +49,15 @@
                                        required>
                             </div>
 
-                            <div class="mb-3">
+                            <div class="mb-4">
                                 <label for="observacoes" class="form-label">Observações</label>
                                 <textarea name="observacoes" id="observacoes" rows="2"
                                           class="form-control">{{ old('observacoes') }}</textarea>
                             </div>
 
                             <div class="row justify-content-center">
-                                <button type="submit" class="btn btn-primary fw-bold col-md-6">Adicionar</button>
+                                <button type="submit" class="btn btn-primary font-weight-bold col-md-6">Adicionar
+                                </button>
                             </div>
                         </form>
                     </div>
@@ -95,7 +107,7 @@
                 function showDoses(vacinaId) {
                     $.get('/vacinas/' + vacinaId + '/doses', function (doses) {
                         $('#dose').empty();
-                        $('#dose-form-grop').show();
+                        $('#dose-form-grop').prop('hidden', false);
 
                         let count = 1;
                         doses.forEach(dose => {
