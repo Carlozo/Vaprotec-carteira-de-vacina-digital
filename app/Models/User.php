@@ -49,12 +49,19 @@ class User extends Authenticatable
         return $this->hasMany(UsuarioDose::class);
     }
 
-    public function age()
+    public function getDoses()
+    {
+        return $this->doses->map(function ($usuario_dose) {
+            return $usuario_dose->dose;
+        });
+    }
+
+    public function getIdadeEmAnos()
     {
         return Carbon::parse($this->attributes['birth_date'])->age;
     }
 
-    public function getAgeInMonths()
+    public function getIdadeEmMeses()
     {
         $birthday = new DateTime($this->attributes['birth_date']);
         $diff = $birthday->diff(new DateTime());
@@ -63,10 +70,10 @@ class User extends Authenticatable
 
     public function getIdadeDecimal()
     {
-        $idade = $this->age();
+        $idade = $this->getIdadeEmAnos();
 
         if ($idade == 0) {
-            $idade = $this->getAgeInMonths() / 100;
+            $idade = $this->getIdadeEmMeses() / 100;
         }
 
         return $idade;
@@ -74,7 +81,7 @@ class User extends Authenticatable
 
     function getDescricaoIdade()
     {
-        $idade = $this->age();
+        $idade = $this->getIdadeEmAnos();
 
         if ($idade > 0) {
             if ($idade == 1) {
@@ -84,7 +91,7 @@ class User extends Authenticatable
             }
         }
 
-        $idade = $this->getAgeInMonths();
+        $idade = $this->getIdadeEmMeses();
 
         if ($idade > 0) {
             return $idade . ' meses';
@@ -92,12 +99,4 @@ class User extends Authenticatable
             return 'Menos de um mês';
         }
     }
-
-    public function getDoses()
-    {
-        return $this->doses->map(function ($usuario_dose) {
-            return $usuario_dose->dose;
-        });
-    }
-
 }

@@ -55,49 +55,59 @@
     </div>
 
     <script type="text/javascript">
-        let vacinas = @json($vacinas);
+        (function () {
+            let vacinas = @json($vacinas);
 
-        if (vacinas.length > 0) {
-            let i = 0;
-            var data = [{
-                text: vacinas[i].categoria,
-                children: []
-            }];
+            if (vacinas.length > 0) {
+                initSelectVacinas(vacinas);
 
-            vacinas.forEach(vacina => {
-                if (vacina.categoria !== data[i].text) {
-                    i++;
-                    data.push({
-                        text: vacina.categoria,
+                showDoses(vacinas[0].id);
+
+                function initSelectVacinas(vacinas) {
+                    let i = 0;
+                    let data = [{
+                        text: vacinas[i].categoria,
                         children: []
+                    }];
+
+                    vacinas.forEach(vacina => {
+                        if (vacina.categoria !== data[i].text) {
+                            i++;
+                            data.push({
+                                text: vacina.categoria,
+                                children: []
+                            });
+                        }
+
+                        vacina.text = vacina.nome;
+                        data[i].children.push(vacina);
+                    });
+
+                    $('#vacinas-select').select2({
+                        data: data
+                    });
+
+                    $('#vacinas-select').change(function () {
+                        showDoses($('#vacinas-select option:selected').val());
                     });
                 }
 
-                vacina.text = vacina.nome;
-                data[i].children.push(vacina);
-            });
+                function showDoses(vacinaId) {
+                    $.get('/vacinas/' + vacinaId + '/doses', function (doses) {
+                        $('#dose').empty();
+                        $('#dose-form-grop').show();
 
-            $('#vacinas-select').select2({
-                data: data
-            });
-        }
-
-        $('#vacinas-select').change(function () {
-            let vacinaSelecionada = $('#vacinas-select option:selected').val();
-
-            $.get('/vacinas/' + vacinaSelecionada + '/doses', function (doses) {
-                $('#dose').empty();
-                $('#dose-form-grop').show();
-
-                let count = 1;
-                doses.forEach(dose => {
-                    let option = document.createElement('option');
-                    option.value = dose.id;
-                    option.innerText = count + 'ª dose';
-                    $('#dose').append(option);
-                    count++;
-                });
-            });
-        });
+                        let count = 1;
+                        doses.forEach(dose => {
+                            let option = document.createElement('option');
+                            option.value = dose.id;
+                            option.innerText = count + 'ª dose';
+                            $('#dose').append(option);
+                            count++;
+                        });
+                    });
+                }
+            }
+        })();
     </script>
 @endsection

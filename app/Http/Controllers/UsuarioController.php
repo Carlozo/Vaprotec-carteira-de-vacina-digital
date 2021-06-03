@@ -13,17 +13,11 @@ class UsuarioController extends Controller
     {
         $usuario = auth()->user();
 
-        $idade = $usuario->age();
+        $idade = $usuario->getIdadeDecimal();
 
-        if ($idade == 0) {
-            $idade = $usuario->getAgeInMonths() / 100;
-        }
+        $todas_doses = Dose::where('idade', '<=', $idade)->get();
 
-        $doses_todas = Dose::where('idade', '<=', $idade)->get();
-
-        $doses_pendentes = $doses_todas->diff($usuario->doses->map(function ($usuario_dose) {
-            return $usuario_dose->dose;
-        }));
+        $doses_pendentes = $todas_doses->diff($usuario->getDoses());
 
         return view('usuarios.meu-perfil', [
             'usuario' => $usuario,
