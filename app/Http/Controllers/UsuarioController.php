@@ -54,8 +54,17 @@ class UsuarioController extends Controller
 
         $user = auth()->user();
         $user->name = $validatedData['name'];
-        $user->gender = $validatedData['gender'];
         $user->birth_date = $validatedData['birth_date'];
+        $user->gender = $validatedData['gender'];
+
+        if ($user->gender == 'Feminino') {
+            $user->gestante = (bool)$request['gestante'];
+        } else {
+            $user->gestante = false;
+        }
+
+        $user->viajante = (bool)$request['viajante'];
+
         $user->save();
 
         session()->flash('successMessage', 'Perfil atualizado com sucesso!');

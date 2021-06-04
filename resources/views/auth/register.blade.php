@@ -49,7 +49,7 @@
                                 <div class="col-md-6">
                                     <label for="gender">Sexo</label>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="gender"
+                                        <input class="form-check-input mt-0" type="radio" name="gender"
                                                value="Masculino" checked>
                                         <label class="form-check-label" for="exampleRadios1">
                                             Masculino

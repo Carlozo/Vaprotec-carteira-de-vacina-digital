@@ -31,26 +31,49 @@
                                        disabled>
                             </div>
 
-                            <div class="mb-3">
-                                <label>Sexo</label>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="gender"
-                                           id="masculino-radio" value="Masculino"
-                                           @if($usuario->gender == 'Masculino') checked @endif>
-                                    <label class="form-check-label" for="masculino-radio">
-                                        Masculino
-                                    </label>
+                            <div class="row mb-3">
+                                <div class="col-md-6 mb-3">
+                                    <label>Sexo</label>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="gender"
+                                               id="masculino-radio" value="Masculino"
+                                               onchange="atualizarCheckboxGestante('Masculino')"
+                                               @if($usuario->gender == 'Masculino') checked @endif>
+                                        <label class="form-check-label" for="masculino-radio">
+                                            Masculino
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="gender"
+                                               id="feminino-radio" value="Feminino"
+                                               onchange="atualizarCheckboxGestante('Feminino')"
+                                               @if($usuario->gender == 'Feminino') checked @endif>
+                                        <label class="form-check-label" for="feminino-radio">
+                                            Feminino
+                                        </label>
+                                    </div>
                                 </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="gender"
-                                           id="feminino-radio" value="Feminino"
-                                           @if($usuario->gender == 'Feminino') checked @endif>
-                                    <label class="form-check-label" for="feminino-radio">
-                                        Feminino
-                                    </label>
+
+                                <div class="col-md-6">
+                                    <label>Outras informações</label>
+                                    <div class="form-check viajante">
+                                        <input class="form-check-input" type="checkbox" id="viajanteCheck"
+                                               name="viajante" value="true"
+                                               @if($usuario->viajante) checked @endif>
+                                        <label class="form-check-label" for="viajanteCheck">
+                                            Viajante
+                                        </label>
+                                    </div>
+                                    <div class="form-check gestante">
+                                        <input class="form-check-input" type="checkbox" id="gestanteCheck"
+                                               name="gestante" value="true"
+                                               @if($usuario->gestante) checked @endif>
+                                        <label class="form-check-label" for="gestanteCheck">
+                                            Gestante
+                                        </label>
+                                    </div>
                                 </div>
                             </div>
-
                             <div class="row justify-content-center">
                                 <button class="btn btn-primary font-weight-bold col-md-6" type="submit">Salvar</button>
                             </div>
@@ -61,4 +84,15 @@
         </div>
     </div>
 
+    <script>
+        atualizarCheckboxGestante($('input[name="gender"]:checked').val());
+
+        function atualizarCheckboxGestante(sexo) {
+            if (sexo === 'Feminino') {
+                $('.gestante').prop('hidden', false);
+            } else {
+                $('.gestante').prop('hidden', true);
+            }
+        }
+    </script>
 @endsection
