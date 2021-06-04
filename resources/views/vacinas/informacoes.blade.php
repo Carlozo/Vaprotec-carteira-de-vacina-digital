@@ -29,7 +29,7 @@
                     </li>
                     <li><a href="#ado">Vacinas para Adolescentes</a></li>
                     <li><a href="#hom">Vacinas para Homens</a></li>
-                    <li> Vacinas para Mulheres
+                    <li style="color: black;"> Vacinas para Mulheres
                         <ul>
                             <li><a href="#mulg">Vacinas para Mulheres grávidas</a></li>
                             <li><a href="#mulng">Vacinas para Mulheres não grávidas </a></li>
@@ -95,7 +95,7 @@
                     causa
                     um tipo de meningite.
 
-                <ul>
+                <ul class="ul-preto">
                     <li id="tetano">Tétano: O tétano é uma infeccção, causada por uma toxina, que entr no organismo por
                         ferimentos ou lesões
                         na pele(Tétano Acidental), ou pelo coto do cordão umbilical(Tétano neonatal ou mal dos sete
@@ -138,7 +138,7 @@
                     músculo tifóide.
                     É necessária somete uma dos eda vacina. <br>
                     Oferece Proteção contra o Sarampo, Rubéola e Caxumba
-                <ul>
+                <ul class="ul-preto">
                     <li id="sarampo">Sarampo: O sarampo é uma doença muito contagiosa, causada por um vírus que provoca
                         febre
                         alta, tosse, coriza
@@ -244,7 +244,7 @@
                     após a primeira.
                     Além disso, certos grupos específicos de maior risco também necessitam dela, sendo:
 
-                <ul>
+                <ul class="ul-preto">
                     <li>Pessoas com doenças crônicas do fígado</li>
                     <li>Pessoas que fazem hemodiálise</li>
                     <li>Pessoas que precisam receber muitas transfusões de sangue</li>
@@ -281,7 +281,7 @@
                     caso a
                     pessoa seja infectada, ela não desenvolve a doença, ficando protegida.
                     A vacina está disponível gratuitamente nos postos de saúde, em 2 a 3 doses, para:
-                <ul>
+                <ul class="ul-preto">
                     <li>Meninos e meninas dos 9 aos 14 anos;</li>
                     <li>Homens e mulheres de 9 a 26 anos vivendo com HIV ou AIDS, pacientes que receberam transplante de
                         órgãos,
@@ -346,7 +346,7 @@
             <article>
                 <div class="azul">
                     <img src="../images/mulher.png" alt="">
-                    </h2>Vacinas para Mulheres </h2>
+                    <h2>Vacinas para Mulheres </h2>
                 </div>
                 <h3 id="mulg">Mulheres grávidas: Vacinas a serem tomadas durante a gravidez</h3>
                 <h3>Vacina contra Difteria e Tétano (Duplo Adulto- DT)</h3>
@@ -421,7 +421,7 @@
             <article>
                 <div class="azul">
                     <img src="../images/idosos.png" alt="">
-                    </h2>Vacinas para Idosos </h2>
+                    <h2>Vacinas para Idosos </h2>
                 </div>
                 <h3>Vacina contra Difteria e Tétano (Duplo Adulto- DT)</h3>
 
@@ -543,6 +543,7 @@
                    href="https://agenciabrasil.ebc.com.br/radioagencia-nacional/politica/audio/2021-04/covid-19-com-duas-vacinas-disponiveis-brasil-imunizou-15-milhoes">https://agenciabrasil.ebc.com.br/</a>
                 <br><a target="blank"
                        href="https://portalarquivos.saude.gov.br/campanhas/vivamaissus/vacinacaoinfantil_interna.html#:~:text=Atualmente%20s%C3%A3o%20disponibilizadas%20300%20milh%C3%B5es,ser%20prevenidas%20com%20a%20vacina%C3%A7%C3%A3o%3A&text=Tuberculose">https://portalarquivos.saude.gov.br/</a>
+                       
             </article>
         </div>
     </div>
