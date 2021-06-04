@@ -61,14 +61,26 @@ class VacinaController extends Controller
         $validatedData = $request->validate([
             'nome' => ['required', 'max:255'],
             'categoria' => ['required', 'max:255'],
-            'prevencoes' => ['max:255']
+            'prevencoes' => ['max:255'],
+            'idades' => ['present', 'array']
         ]);
 
-        $vacina = Vacina::create($validatedData);
+        $vacina = new Vacina;
+        $vacina->nome = $validatedData['nome'];
+        $vacina->categoria = $validatedData['categoria'];
+        $vacina->prevencoes = $validatedData['prevencoes'];
+        $vacina->repetivel = (bool)$request['repetivel'];
+        $vacina->save();
 
-        for ($i = 0; $i < count($request->idade); $i++) {
+        $total_doses = count($request->idades);
+
+        if ($vacina->repetivel) {
+            $total_doses = 1;
+        }
+
+        for ($i = 0; $i < $total_doses; $i++) {
             $vacina->doses()->create([
-                'idade' => $request->idade[$i]
+                'idade' => $request->idades[$i]
             ]);
         }
 
@@ -135,10 +147,13 @@ class VacinaController extends Controller
 
     public function getDoses(Vacina $vacina)
     {
-        // TODO verificar se a dose da vacina pode ser tomada varias vezes
-
         $usuario = auth()->user();
         $doses = $vacina->doses()->where('idade', '<=', $usuario->getIdadeDecimal())->get();
+
+        if ($vacina->repetivel) {
+            return response()->json($doses);
+        }
+
         return response()->json($doses->diff($usuario->getDoses()));
     }
 }

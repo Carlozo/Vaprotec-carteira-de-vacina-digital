@@ -17,6 +17,7 @@ class CreateVacinasTable extends Migration
             $table->id();
             $table->string('nome');
             $table->string('prevencoes')->nullable();
+            $table->boolean('repetivel')->default(false);
             $table->string('observacoes_doses')->nullable();
             $table->string('categoria');
         });

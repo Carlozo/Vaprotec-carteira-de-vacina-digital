@@ -35,9 +35,12 @@ class UsuarioDoseController extends Controller
         $vacinas = collect();
 
         foreach (Vacina::all() as $vacina) {
-            // TODO verificar se vacina (gestante) pode ser tomada varias vezes
+            if ($vacina->categoria == 'Viajante' && !$usuario->viajante ||
+                $vacina->categoria == 'Gestante' && !$usuario->gestante) {
+                continue;
+            }
 
-            if (count($vacina->doses()->where('idade', '<=', $idade_limite)->get()->diff($doses_tomadas)) > 0) {
+            if ($vacina->repetivel || count($vacina->doses()->where('idade', '<=', $idade_limite)->get()->diff($doses_tomadas)) > 0) {
                 $vacinas->add($vacina);
             }
         }

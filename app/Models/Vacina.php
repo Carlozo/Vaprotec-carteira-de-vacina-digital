@@ -12,7 +12,8 @@ class Vacina extends Model
     protected $fillable = [
         'nome',
         'prevencoes',
-        'categoria'
+        'categoria',
+        'repetivel'
     ];
 
     public $timestamps = false;

@@ -64,15 +64,32 @@
                             </div>
 
                             <div class="form-group">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="repetivel" value="true"
+                                           id="defaultCheck1">
+                                    <label class="form-check-label" for="defaultCheck1">
+                                        Vacina pode ser tomada várias veses? <span class="text-muted">(ao marcar esta opção a vacina só poderá
+                                            ter 1 dose)</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
                                 <span class="font-weight-bold">Doses</span>
                                 <hr>
                                 <div id="doses">
                                     <div class="dose d-flex justify-content-start align-items-baseline mb-2">
                                         <div class="numero-dose mr-2">1º dose</div>
-                                        <select name="idade[]" class="form-control w-25 mr-2" data-toggle="tooltip"
+                                        <select name="idades[]" class="form-control w-25 mr-2" data-toggle="tooltip"
                                                 data-placement="top"
                                                 title="Idade em que a dose deverá ser tomada">
+                                            @foreach ($idades as $value)
+                                                <option
+                                                    value="{{ ((object) $value)->idade }}">{{ ((object) $value)->descricao }}</option>
+                                            @endforeach
                                         </select>
+
+
                                         <button type="button"
                                                 class="remover-dose-btn btn btn-danger btn-sm">
                                             <i class="fas fa-minus"></i>
@@ -100,12 +117,6 @@
     </div>
 
     <script>
-        let idadesDoses = @json($idades);
-
-        idadesDoses.forEach(idadeDose =>
-            $('select[name="idade[]"]').append(`<option value="${idadeDose.idade}">${idadeDose.descricao}</option>`)
-        );
-
         $('#add-dose-button').click(function () {
             $('.dose').first().clone().insertAfter('div.dose:last');
 
