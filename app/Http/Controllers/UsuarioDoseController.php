@@ -71,7 +71,7 @@ class UsuarioDoseController extends Controller
         $dose->observacoes = $validatedData['observacoes'];
         $dose->save();
 
-        session()->flash('successMessage', 'Dose da vacina adicionada com sucesso!');
+        session()->flash('successMessage', 'Dose da vacina ' . $dose->dose->vacina->nome . ' adicionada com sucesso!');
 
         return redirect()->route('usuarios.minha-caderneta');
     }
@@ -84,7 +84,7 @@ class UsuarioDoseController extends Controller
      */
     public function show(UsuarioDose $usuarioDose)
     {
-        //
+        return response()->json(UsuarioDose::with('dose.vacina')->where('id', $usuarioDose->id)->first());
     }
 
     /**

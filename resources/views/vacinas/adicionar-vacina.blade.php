@@ -36,7 +36,7 @@
                             </div>
 
                             <div id="dose-form-grop" class="form-group" hidden>
-                                <label for="dose">Dose</label>
+                                <label for="dose">Dose - Idade em que deve ser tomada</label>
                                 <select name="dose" id="dose" class="custom-select" required>
                                 </select>
                             </div>
@@ -112,7 +112,7 @@
                         doses.forEach(dose => {
                             let option = document.createElement('option');
                             option.value = dose.id;
-                            option.innerText = dose.descricao;
+                            option.innerText = dose.descricao + ' - ' + dose.idade_descricao;
                             $('#dose').append(option);
                         });
                     });

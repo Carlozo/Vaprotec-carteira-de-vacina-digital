@@ -44,6 +44,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/vacinas/add', [UsuarioDoseController::class, 'store'])->name('doses.store');
 
     Route::post('/usuarios/doses/{usuarioDose}', [UsuarioDoseController::class, 'destroy']);
+    Route::get('/usuarios/doses/{usuarioDose}', [UsuarioDoseController::class, 'show']);
 });
 
 Route::get('/calendario', [VacinaController::class, 'showCalendario'])->name('vacinas.calendario');
