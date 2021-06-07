@@ -80,7 +80,8 @@ class VacinaController extends Controller
 
         for ($i = 0; $i < $total_doses; $i++) {
             $vacina->doses()->create([
-                'idade' => $request->idades[$i]
+                'idade' => $request->idades[$i],
+                'descricao' => $request->descricoes[$i]
             ]);
         }
 

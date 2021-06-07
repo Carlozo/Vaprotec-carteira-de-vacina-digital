@@ -78,25 +78,28 @@
                                 <span class="font-weight-bold">Doses</span>
                                 <hr>
                                 <div id="doses">
-                                    <div class="dose d-flex justify-content-start align-items-baseline mb-2">
-                                        <div class="numero-dose mr-2">1º dose</div>
-                                        <select name="idades[]" class="form-control w-25 mr-2" data-toggle="tooltip"
-                                                data-placement="top"
-                                                title="Idade em que a dose deverá ser tomada">
-                                            @foreach ($idades as $value)
-                                                <option
-                                                    value="{{ ((object) $value)->idade }}">{{ ((object) $value)->descricao }}</option>
-                                            @endforeach
-                                        </select>
-
-
-                                        <button type="button"
-                                                class="remover-dose-btn btn btn-danger btn-sm">
-                                            <i class="fas fa-minus"></i>
-                                        </button>
+                                    <div class="dose row mb-2">
+                                        <div class="d-flex align-items-baseline col-md-4">
+                                            <div class="numero-dose text-muted mr-3">1.</div>
+                                            <select name="idades[]" class="form-control" data-toggle="tooltip"
+                                                    data-placement="top"
+                                                    title="Idade em que a dose deverá ser tomada">
+                                                @foreach ($idades as $value)
+                                                    <option
+                                                        value="{{ ((object) $value)->idade }}">{{ ((object) $value)->descricao }}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                        <div class="d-flex align-items-baseline col-md-8">
+                                            <input type="text" class="form-control mr-3" name="descricoes[]"
+                                                   placeholder="Descrição, ex.: Dose única, 2ª dose">
+                                            <button type="button"
+                                                    class="remover-dose-btn h-50 btn btn-danger btn-sm">
+                                                <i class="fas fa-minus"></i>
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
-
                                 <div class="d-flex justify-content-end">
                                     <button type="button" id="add-dose-button" class="btn btn-primary btn-sm">
                                         <i class="fas fa-plus"></i>
@@ -117,6 +120,10 @@
     </div>
 
     <script>
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        });
+
         $('#add-dose-button').click(function () {
             $('.dose').first().clone().insertAfter('div.dose:last');
 
@@ -139,7 +146,7 @@
         function atualizarNumeroDoses() {
             let i = 1;
             $('.dose').each(function () {
-                $(this).find('.numero-dose').text(i++ + 'º dose');
+                $(this).find('.numero-dose').text(i++ + '.');
             });
         }
     </script>
