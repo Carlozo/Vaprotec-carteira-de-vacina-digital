@@ -46,7 +46,7 @@
                     <tbody>
                     @foreach($usuario->doses as $dose)
                         <tr data-id="{{ $dose->id }}">
-                            <td>{{ $dose->dose->vacina->nome }}</td>
+                            <td>{{ $dose->dose->vacina->nome . ' - ' . $dose->dose->descricao}}</td>
                             <td>{{ \Carbon\Carbon::parse($dose->dose->data)->format('d/m/Y') }}</td>
                             <td>
                                 <button type="button" class="btn btn-sm btn-danger"

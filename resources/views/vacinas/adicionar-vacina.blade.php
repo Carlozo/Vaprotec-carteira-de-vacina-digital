@@ -109,13 +109,11 @@
                         $('#dose').empty();
                         $('#dose-form-grop').prop('hidden', false);
 
-                        let count = 1;
                         doses.forEach(dose => {
                             let option = document.createElement('option');
                             option.value = dose.id;
-                            option.innerText = count + 'ª dose';
+                            option.innerText = dose.descricao;
                             $('#dose').append(option);
-                            count++;
                         });
                     });
                 }
