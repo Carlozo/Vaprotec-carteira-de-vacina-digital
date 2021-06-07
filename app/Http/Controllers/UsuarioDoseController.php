@@ -118,6 +118,11 @@ class UsuarioDoseController extends Controller
      */
     public function destroy(UsuarioDose $usuarioDose)
     {
-        //
+        if (auth()->user()->id !== $usuarioDose->user->id) {
+            return response()->json(['Você está tentando excluir uma fasdjfklalfkl!'], 403);
+        }
+
+        $usuarioDose->delete();
+        return response()->noContent();
     }
 }
