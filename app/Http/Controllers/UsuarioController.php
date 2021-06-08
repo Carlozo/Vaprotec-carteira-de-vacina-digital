@@ -20,21 +20,22 @@ class UsuarioController extends Controller
 
         foreach (Vacina::all() as $vacina) {
             if ($vacina->categoria == 'Viajante' && !$usuario->viajante ||
-                $vacina->categoria == 'Gestante' && !$usuario->gestante) {
+                $vacina->categoria == 'Gestante' && !$usuario->gestante ||
+                $vacina->repetivel) {
                 continue;
             }
 
-            $doses_nao_tomadas = $vacina->doses()->where('idade', '<=', $max_idade)->get()->diff($doses_tomadas);
+            $doses_nao_tomadas = $vacina->doses()
+                ->where('idade', '<=', $max_idade)
+                ->get()
+                ->diff($doses_tomadas);
 
-            if (count($doses_nao_tomadas) > 0) {
-                $doses_pendentes->push($doses_nao_tomadas);
-            }
+            $doses_pendentes = $doses_pendentes->concat($doses_nao_tomadas);
         }
 
         return view('usuarios.meu-perfil', [
             'usuario' => $usuario,
-            'total_doses_pendentes' => count($doses_pendentes),
-            'doses_pendentes' => $doses_pendentes
+            'total_doses_pendentes' => $doses_pendentes->count()
         ]);
     }
 
