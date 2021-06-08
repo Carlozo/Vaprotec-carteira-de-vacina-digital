@@ -132,6 +132,8 @@
                 let td = $(this).closest('tr[data-id]');
                 let id = td.data('id');
 
+                $('[data-toggle="tooltip"]').tooltip('hide');
+
                 $.ajax({
                     method: 'POST',
                     url: '/usuarios/doses/' + id,
