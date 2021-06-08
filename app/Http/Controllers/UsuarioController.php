@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Dose;
+use App\Models\Vacina;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -13,15 +13,28 @@ class UsuarioController extends Controller
     {
         $usuario = auth()->user();
 
-        $idade = $usuario->getIdadeDecimal();
+        $max_idade = $usuario->getIdadeDecimal();
 
-        $todas_doses = Dose::where('idade', '<=', $idade)->get();
+        $doses_tomadas = $usuario->getDoses();
+        $doses_pendentes = collect();
 
-        $doses_pendentes = $todas_doses->diff($usuario->getDoses());
+        foreach (Vacina::all() as $vacina) {
+            if ($vacina->categoria == 'Viajante' && !$usuario->viajante ||
+                $vacina->categoria == 'Gestante' && !$usuario->gestante) {
+                continue;
+            }
+
+            $doses_nao_tomadas = $vacina->doses()->where('idade', '<=', $max_idade)->get()->diff($doses_tomadas);
+
+            if (count($doses_nao_tomadas) > 0) {
+                $doses_pendentes->push($doses_nao_tomadas);
+            }
+        }
 
         return view('usuarios.meu-perfil', [
             'usuario' => $usuario,
-            'total_doses_pendentes' => count($doses_pendentes)
+            'total_doses_pendentes' => count($doses_pendentes),
+            'doses_pendentes' => $doses_pendentes
         ]);
     }
 
