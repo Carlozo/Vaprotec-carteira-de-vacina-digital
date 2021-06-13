@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Categoria;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -19,7 +20,7 @@ class CreateVacinasTable extends Migration
             $table->string('prevencoes')->nullable();
             $table->boolean('repetivel')->default(false);
             $table->string('observacoes_doses')->nullable();
-            $table->string('categoria');
+            $table->foreignIdFor(Categoria::class)->nullable();
         });
     }
 

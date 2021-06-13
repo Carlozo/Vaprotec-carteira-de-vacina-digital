@@ -112,7 +112,7 @@
         function showDose(id) {
             $.get('/usuarios/doses/' + id, function (usuarioDose) {
                 $('#vacinaModalLabel').text(usuarioDose.dose.vacina.nome + ' - ' + usuarioDose.dose.descricao + ', ' + usuarioDose.dose.idade_descricao);
-                $('#categoriaModal').text(usuarioDose.dose.vacina.categoria);
+                $('#categoriaModal').text(usuarioDose.dose.vacina.categoria.nome);
                 $('#dataModal').text(usuarioDose.dose.data);
                 $('#doencasEvitaveisModal').text(usuarioDose.dose.vacina.prevencoes);
                 $('#observacoesModal').text(usuarioDose.observacoes ? usuarioDose.observacoes : 'Nenhuma');

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Categoria;
 use App\Models\Vacina;
 use Illuminate\Http\Request;
 
@@ -46,6 +47,7 @@ class VacinaController extends Controller
         }
 
         return view('vacinas.criar-vacina', [
+            'categorias' => Categoria::all(),
             'idades' => $idades
         ]);
     }
@@ -60,14 +62,14 @@ class VacinaController extends Controller
     {
         $validatedData = $request->validate([
             'nome' => ['required', 'max:255'],
-            'categoria' => ['required', 'max:255'],
+            'categoria' => ['required'],
             'prevencoes' => ['max:255'],
             'idades' => ['present', 'array']
         ]);
 
         $vacina = new Vacina;
         $vacina->nome = $validatedData['nome'];
-        $vacina->categoria = $validatedData['categoria'];
+        $vacina->categoria()->associate(Categoria::find($validatedData['categoria']));
         $vacina->prevencoes = $validatedData['prevencoes'];
         $vacina->repetivel = (bool)$request['repetivel'];
         $vacina->save();

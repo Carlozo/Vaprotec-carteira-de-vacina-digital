@@ -36,19 +36,6 @@
                                     </span>
                                 @enderror
                             </div>
-                            <div class="form-group">
-                                <label for="categoria">{{ __('Categoria') }}</label>
-
-                                <input id="categoria" type="text"
-                                       class="form-control @error('categoria') is-invalid @enderror" name="categoria"
-                                       value="{{ old('categoria') }}" required autocomplete="categoria">
-
-                                @error('categoria')
-                                <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
 
                             <div class="form-group">
                                 <label for="prevencoes">{{ __('Prevenções') }}</label>
@@ -61,6 +48,17 @@
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
+                            </div>
+
+                            <div class="form-group">
+                                <label for="categoria">{{ __('Categoria') }}</label>
+
+
+                                <select class="custom-select" id="categoria" name="categoria" required>
+                                    @foreach($categorias as $categoria)
+                                        <option value="{{ $categoria->id }}">{{ $categoria->nome }}</option>
+                                    @endforeach
+                                </select>
                             </div>
 
                             <div class="form-group">

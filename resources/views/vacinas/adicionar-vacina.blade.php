@@ -78,15 +78,15 @@
                 function initSelectVacinas(vacinas) {
                     let i = 0;
                     let data = [{
-                        text: vacinas[i].categoria,
+                        text: vacinas[i].categoria.nome,
                         children: []
                     }];
 
                     vacinas.forEach(vacina => {
-                        if (vacina.categoria !== data[i].text) {
+                        if (vacina.categoria.nome !== data[i].text) {
                             i++;
                             data.push({
-                                text: vacina.categoria,
+                                text: vacina.categoria.nome,
                                 children: []
                             });
                         }

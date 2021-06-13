@@ -12,7 +12,6 @@ class Vacina extends Model
     protected $fillable = [
         'nome',
         'prevencoes',
-        'categoria',
         'repetivel'
     ];
 
@@ -21,5 +20,10 @@ class Vacina extends Model
     function doses()
     {
         return $this->hasMany(Dose::class);
+    }
+
+    function categoria()
+    {
+        return $this->belongsTo(Categoria::class);
     }
 }

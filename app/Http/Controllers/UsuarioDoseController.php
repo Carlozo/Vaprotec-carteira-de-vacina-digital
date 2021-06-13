@@ -34,7 +34,7 @@ class UsuarioDoseController extends Controller
 
         $vacinas = collect();
 
-        foreach (Vacina::all() as $vacina) {
+        foreach (Vacina::orderBy('categoria_id')->orderBy('nome')->get() as $vacina) {
             if ($vacina->categoria == 'Viajante' && !$usuario->viajante ||
                 $vacina->categoria == 'Gestante' && !$usuario->gestante) {
                 continue;
@@ -84,7 +84,7 @@ class UsuarioDoseController extends Controller
      */
     public function show(UsuarioDose $usuarioDose)
     {
-        return response()->json(UsuarioDose::with('dose.vacina')->where('id', $usuarioDose->id)->first());
+        return response()->json(UsuarioDose::with('dose.vacina.categoria')->where('id', $usuarioDose->id)->first());
     }
 
     /**
