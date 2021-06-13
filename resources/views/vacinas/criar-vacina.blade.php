@@ -38,12 +38,12 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="prevencoes">{{ __('Prevenções') }}</label>
+                                <label for="doencas_evitaveis">{{ __('Doenças Evitáveis') }}</label>
 
-                                <textarea id="prevencoes" name="prevencoes"
-                                          class="form-control">{{ old('prevencoes') }}</textarea>
+                                <textarea id="doencas_evitaveis" name="doencas_evitaveis"
+                                          class="form-control">{{ old('doencas_evitaveis') }}</textarea>
 
-                                @error('prevencoes')
+                                @error('doencas_evitaveis')
                                 <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>

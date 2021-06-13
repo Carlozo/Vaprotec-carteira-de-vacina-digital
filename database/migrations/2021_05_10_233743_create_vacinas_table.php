@@ -17,9 +17,8 @@ class CreateVacinasTable extends Migration
         Schema::create('vacinas', function (Blueprint $table) {
             $table->id();
             $table->string('nome');
-            $table->string('prevencoes')->nullable();
+            $table->string('doencas_evitaveis')->nullable();
             $table->boolean('repetivel')->default(false);
-            $table->string('observacoes_doses')->nullable();
             $table->foreignIdFor(Categoria::class)->nullable();
         });
     }

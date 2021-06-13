@@ -2,6 +2,9 @@
 
 @section('head')
     <script src="https://kit.fontawesome.com/c40b2d583b.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.css">
+    <script type="text/javascript" charset="utf8"
+            src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js"></script>
 @endsection
 
 @section('content')
@@ -43,18 +46,20 @@
                             <tr>
                                 <th>Vacina</th>
                                 <th>Dose</th>
+                                <th>Categoria</th>
                                 <th>Data</th>
                                 <th></th>
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach($usuario->doses as $dose)
-                                <tr data-id="{{ $dose->id }}">
-                                    <td class="usuario-dose font-weight-bold"
-                                        onclick="showDose({{$dose->id}})"
-                                        style="cursor: pointer">{{ $dose->dose->vacina->nome }}</td>
-                                    <td>{{ $dose->dose->descricao }}</td>
-                                    <td>{{ \Carbon\Carbon::parse($dose->dose->data)->format('d/m/Y') }}</td>
+                            @foreach($usuario->usuarioDoses as $usuarioDose)
+                                <tr data-id="{{ $usuarioDose->id }}">
+                                    <td class="font-weight-bold"
+                                        onclick="showDose({{$usuarioDose->id}})"
+                                        style="cursor: pointer">{{ $usuarioDose->dose->vacina->nome }}</td>
+                                    <td>{{ $usuarioDose->dose->descricao }}</td>
+                                    <td>{{ $usuarioDose->dose->vacina->categoria->nome }}</td>
+                                    <td>{{ \Carbon\Carbon::parse($usuarioDose->data)->format('d/m/Y') }}</td>
                                     <td>
                                         <button type="button" class="btn btn-sm btn-danger"
                                                 data-toggle="tooltip" data-placement="top" title="Remover dose"><i
@@ -65,7 +70,7 @@
                             @endforeach
                             </tbody>
                         </table>
-                        <div class="d-flex justify-content-center align-items-center">
+                        <div class="d-flex justify-content-center align-items-center mt-3">
                             <a class="btn btn-primary font-weight-bold"
                                href="{{ route('doses.create') }}">
                                 <i class="fas fa-syringe"></i> Adicionar Vacina</a>
@@ -77,7 +82,8 @@
     </div>
 
     <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="usuarioDoseModal" tabindex="-1" aria-labelledby="usuarioDoseModalLabel"
+         aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
             <div class="modal-content">
                 <div class="modal-header">
@@ -113,17 +119,23 @@
             $.get('/usuarios/doses/' + id, function (usuarioDose) {
                 $('#vacinaModalLabel').text(usuarioDose.dose.vacina.nome + ' - ' + usuarioDose.dose.descricao + ', ' + usuarioDose.dose.idade_descricao);
                 $('#categoriaModal').text(usuarioDose.dose.vacina.categoria.nome);
-                $('#dataModal').text(usuarioDose.dose.data);
-                $('#doencasEvitaveisModal').text(usuarioDose.dose.vacina.prevencoes);
+                $('#doencasEvitaveisModal').text(usuarioDose.dose.vacina.doencas_evitaveis);
                 $('#observacoesModal').text(usuarioDose.observacoes ? usuarioDose.observacoes : 'Nenhuma');
 
-                $('#exampleModal').modal('show');
+                $('#usuarioDoseModal').modal('show');
             }).fail(function (jqXHR, textStatus) {
                 console.log(textStatus);
             });
         }
 
         (function () {
+            $('table').DataTable({
+                language: {
+                    url: '//cdn.datatables.net/plug-ins/1.10.25/i18n/Portuguese-Brasil.json'
+                },
+                order: ['3', 'desc']
+            });
+
             $(function () {
                 $('[data-toggle="tooltip"]').tooltip()
             });

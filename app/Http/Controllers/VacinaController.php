@@ -62,15 +62,15 @@ class VacinaController extends Controller
     {
         $validatedData = $request->validate([
             'nome' => ['required', 'max:255'],
+            'doencas_evitaveis' => ['max:255'],
             'categoria' => ['required'],
-            'prevencoes' => ['max:255'],
             'idades' => ['present', 'array']
         ]);
 
         $vacina = new Vacina;
         $vacina->nome = $validatedData['nome'];
+        $vacina->doencas_evitaveis = $validatedData['doencas_evitaveis'];
         $vacina->categoria()->associate(Categoria::find($validatedData['categoria']));
-        $vacina->prevencoes = $validatedData['prevencoes'];
         $vacina->repetivel = (bool)$request['repetivel'];
         $vacina->save();
 
@@ -87,7 +87,7 @@ class VacinaController extends Controller
             ]);
         }
 
-        session()->flash('successMessage', 'Vacina ' . $vacina->nome . ' foi criada com sucesso!');
+        session()->flash('successMessage', 'Vacina ' . $vacina->nome . ' criada com sucesso!');
 
         return redirect()->route('vacinas.create');
     }

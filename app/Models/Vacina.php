@@ -11,7 +11,7 @@ class Vacina extends Model
 
     protected $fillable = [
         'nome',
-        'prevencoes',
+        'doencas_evitaveis',
         'repetivel'
     ];
 

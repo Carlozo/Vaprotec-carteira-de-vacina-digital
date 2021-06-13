@@ -46,14 +46,14 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function doses()
+    public function usuarioDoses()
     {
         return $this->hasMany(UsuarioDose::class);
     }
 
     public function getDoses()
     {
-        return $this->doses->map(function ($usuario_dose) {
+        return $this->usuarioDoses->map(function ($usuario_dose) {
             return $usuario_dose->dose;
         });
     }
