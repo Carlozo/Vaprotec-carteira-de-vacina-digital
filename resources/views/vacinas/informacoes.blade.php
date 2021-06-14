@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-    <div class="container">
+    <div class="container-fluid col-md-8">
         <div class="a2">
             <article>
                 <div class="azul">
@@ -543,7 +543,7 @@
                    href="https://agenciabrasil.ebc.com.br/radioagencia-nacional/politica/audio/2021-04/covid-19-com-duas-vacinas-disponiveis-brasil-imunizou-15-milhoes">https://agenciabrasil.ebc.com.br/</a>
                 <br><a target="blank"
                        href="https://portalarquivos.saude.gov.br/campanhas/vivamaissus/vacinacaoinfantil_interna.html#:~:text=Atualmente%20s%C3%A3o%20disponibilizadas%20300%20milh%C3%B5es,ser%20prevenidas%20com%20a%20vacina%C3%A7%C3%A3o%3A&text=Tuberculose">https://portalarquivos.saude.gov.br/</a>
-                       
+
             </article>
         </div>
     </div>

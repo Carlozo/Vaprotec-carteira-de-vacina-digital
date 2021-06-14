@@ -27,8 +27,6 @@ h3 {
 
 .a2 {
     background-color: rgba(166, 211, 248, 0.671);
-    width: 70%;
-    margin-left: 15%;
     border-radius: 10px;
     margin-top: 15px;
     border-width: 2px 2px 2px 2px;
@@ -38,8 +36,6 @@ h3 {
 
 .a3, .a4 {
     background-color: rgba(166, 211, 248, 0.671);
-    width: 70%;
-    margin-left: 15%;
     border-radius: 10px;
     border-width: 2px 2px 2px 2px;
     border-style: solid;
