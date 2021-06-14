@@ -35,8 +35,8 @@ class UsuarioDoseController extends Controller
         $vacinas = collect();
 
         foreach (Vacina::orderBy('categoria_id')->orderBy('nome')->get() as $vacina) {
-            if ($vacina->categoria == 'Viajante' && !$usuario->viajante ||
-                $vacina->categoria == 'Gestante' && !$usuario->gestante) {
+            if ($vacina->categoria->nome == 'Viajante' && !$usuario->viajante ||
+                $vacina->categoria->nome == 'Gestante' && !$usuario->gestante) {
                 continue;
             }
 

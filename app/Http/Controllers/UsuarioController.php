@@ -19,8 +19,8 @@ class UsuarioController extends Controller
         $doses_pendentes = collect();
 
         foreach (Vacina::all() as $vacina) {
-            if ($vacina->categoria == 'Viajante' && !$usuario->viajante ||
-                $vacina->categoria == 'Gestante' && !$usuario->gestante ||
+            if (($vacina->categoria->nome == 'Viajante' && !$usuario->viajante) ||
+                ($vacina->categoria->nome == 'Gestante' && !$usuario->gestante) ||
                 $vacina->repetivel) {
                 continue;
             }
