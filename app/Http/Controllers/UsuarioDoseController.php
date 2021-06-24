@@ -40,7 +40,8 @@ class UsuarioDoseController extends Controller
                 continue;
             }
 
-            if ($vacina->repetivel || count($vacina->doses()->where('idade', '<=', $idade_limite)->get()->diff($doses_tomadas)) > 0) {
+            if (count($vacina->doses()->where('idade', '<=', $idade_limite)->get()->diff($doses_tomadas)) > 0 ||
+                ($vacina->repetivel && count($vacina->doses()->where('idade', '<=', $idade_limite)->get()) > 0)) {
                 $vacinas->add($vacina);
             }
         }
