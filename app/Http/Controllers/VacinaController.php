@@ -92,52 +92,6 @@ class VacinaController extends Controller
         return redirect()->route('vacinas.create');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param \App\Models\Vacina $vacina
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Vacina $vacina)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param \App\Models\Vacina $vacina
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Vacina $vacina)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param \Illuminate\Http\Request $request
-     * @param \App\Models\Vacina $vacina
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Vacina $vacina)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param \App\Models\Vacina $vacina
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Vacina $vacina)
-    {
-        //
-    }
-
-
     public function showCalendario()
     {
         return view('vacinas.calendario');
