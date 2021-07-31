@@ -11,16 +11,6 @@ use Illuminate\Support\Facades\Auth;
 class UsuarioDoseController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
@@ -86,29 +76,6 @@ class UsuarioDoseController extends Controller
     public function show(UsuarioDose $usuarioDose)
     {
         return response()->json(UsuarioDose::with('dose.vacina.categoria')->where('id', $usuarioDose->id)->first());
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param \App\Models\UsuarioDose $usuarioDose
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(UsuarioDose $usuarioDose)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param \Illuminate\Http\Request $request
-     * @param \App\Models\UsuarioDose $usuarioDose
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, UsuarioDose $usuarioDose)
-    {
-        //
     }
 
     /**
